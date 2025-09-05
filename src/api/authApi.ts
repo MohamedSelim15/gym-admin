@@ -1,5 +1,5 @@
 import api from "./axios";
-import { User } from "../types";
+import type { User } from "../types/index";
 interface LoginResponse{
     status: String;
     token: string;

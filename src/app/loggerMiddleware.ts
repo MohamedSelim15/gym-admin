@@ -1,4 +1,4 @@
-import { Middleware } from "@reduxjs/toolkit";
+import type { Middleware } from "@reduxjs/toolkit";
 
 export const loggerMiddleware: Middleware = (storeAPI) => (next) => (action: any) => {
   console.log("Dispatching:", action.type, action);

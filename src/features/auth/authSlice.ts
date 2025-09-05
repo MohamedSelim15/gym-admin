@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {User} from "../../types/index"
+import type { User } from "../../types/index";
 import { login } from "../../api/authApi";
 import { ServerFailure } from "../../utils/ApiError";
 import { K } from "../../constant";
@@ -41,6 +41,7 @@ const authSlice = createSlice({
       builder
       .addCase(loginFun.pending, (state)=>{
         state.isLoading = true;
+        state.error = null;
       })
       .addCase(loginFun.fulfilled, (state,action)=>{
         state.isLoading = false;
