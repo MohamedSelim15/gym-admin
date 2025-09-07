@@ -1,5 +1,5 @@
 import axios from "axios";
-import {K} from "../constant"
+import { K } from "../../constant";
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 });
@@ -9,7 +9,13 @@ api.interceptors.request.use((config) => {
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-console.log("➡️ Request:", config.method?.toUpperCase(), config.url, config.data,config.headers.Authorization);
+  console.log(
+    "➡️ Request:",
+    config.method?.toUpperCase(),
+    config.url,
+    config.data,
+    config.headers.Authorization
+  );
 
   return config;
 });
