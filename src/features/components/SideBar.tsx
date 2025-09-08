@@ -36,7 +36,7 @@ const SideBar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
   return (
-    <aside className=" primaryColor xl:w-62 w-20 shadow-md p-5 min-h-screen">
+    <aside className=" primaryColor fixed xl:w-62 w-20 shadow-md p-5 min-h-screen">
       <motion.div
         initial={{ y: -200, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
