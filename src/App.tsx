@@ -1,26 +1,22 @@
-import Login from './features/auth/Login'
-import SignUp from './features/auth/SignUp'
-import SideBar from './features/components/SideBar';
-import {  AnimatePresence } from "framer-motion";
-import {  Routes, Route } from "react-router-dom";
+import Login from "./features/auth/Login";
+import SignUp from "./features/auth/SignUp";
+import SideBar from "./features/components/SideBar";
+import { AnimatePresence } from "framer-motion";
+import { Routes, Route } from "react-router-dom";
 
-import Dashboard from './features/Pages/Dashboard';
-import Exercise from "./features/Pages/Exercise"
-import Customer from './features/Pages/Customer';
-import TeamWork from './features/Pages/TeamWork';
-import Notification from './features/Pages/Notification';
-import Reviews from './features/Pages/Reviews';
-import Settings from './features/Pages/Settings';
-import Marketing from './features/Pages/Marketing';
-
-
-
+import Dashboard from "./features/Pages/Dashboard";
+import Exercise from "./features/Pages/Exercises";
+import Customer from "./features/Pages/Customer";
+import TeamWork from "./features/Pages/TeamWork";
+import Notification from "./features/Pages/Notification";
+import Reviews from "./features/Pages/Reviews";
+import Settings from "./features/Pages/Settings";
+import Marketing from "./features/Pages/Marketing";
 
 function App() {
-
   return (
-      <div>
-          {/* <AnimatePresence mode='wait'>
+    <div>
+      {/* <AnimatePresence mode='wait'>
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
@@ -42,12 +38,8 @@ function App() {
           </Routes>
         </div>
       </div>
-
-
-          </div>
-  )
+    </div>
+  );
 }
 
 export default App;
-
-
