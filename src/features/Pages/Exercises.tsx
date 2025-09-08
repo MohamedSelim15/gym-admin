@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { K } from "../../constant";
 import { motion } from "framer-motion";
+import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 const listVariants = {
   hidden: { opacity: 0 },
@@ -48,17 +50,25 @@ const Exercises = () => {
     setExercises(newExercises);
   }
 
+  const navigate = useNavigate();
+
   return (
     <motion.div
-      initial={{ y: -200, opacity: 0 }}
+      initial={{ y: -500, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 500, damping: 20 }}
+      transition={{ type: "spring", stiffness: 500, damping: 25 }}
       className="w-full h-full flex flex-col py-[30px] px-[40px]"
-    >
-      Header
+      >
+      <Header
+        pageName="Exercises"
+        pageLogo="fa-solid fa-dumbbell rotate-135"
+        buttonText="Add Exercise"
+        onButtonClick={() => navigate("/exercise/add")}
+      />
+
       <div className="flex w-full flex-col border-[1px] border-[#CFD9E9] rounded-[16px] min-h-screen">
         <div className="sm:flex w-full hidden">
-          <div className="grid grid-cols-6 w-full px-[35px] py-[15px] items-center">
+          <div className="grid grid-cols-6 w-full px-[35px] py-[15px] items-center relative top-2 ">
             <p className="text-[12px] text-[#15243F] font-semibold">Video</p>
             <p className="text-[12px] text-[#15243F] font-semibold">Name</p>
             <p className="text-[12px] text-[#15243F] font-semibold">Category</p>
@@ -115,7 +125,7 @@ const ExerciseCard = ({ exercise, deleteExercise }) => {
       </div>
 
       {/* Mobile view */}
-      <div className="sm:hidden mt-3 space-y-2 text-sm text-[#15243F]">
+      <div className="sm:hidden text-center mt-3 space-y-2 text-sm text-[#15243F]">
         <p>
           <span className="font-semibold text-gray-600">Name:</span>{" "}
           {exercise.name}
@@ -147,14 +157,14 @@ const ExerciseCard = ({ exercise, deleteExercise }) => {
       </p>
 
       <div className="flex gap-4 justify-center sm:justify-end mt-3 sm:mt-0">
-        <button className="text-blue-500 hover:text-blue-700 text-lg">
-          🖋️
+        <button className="primaryColorText hover:text-blue-700 text-lg cursor-pointer">
+          <i className="fa-solid fa-pen"></i>
         </button>
         <button
-          className="text-red-500 hover:text-red-700 text-lg"
+          className="primaryColorText hover:text-red-700 text-lg cursor-pointer"
           onClick={deleteExercise}
         >
-          🗑️
+          <i className="fa-solid fa-trash"></i>
         </button>
       </div>
     </motion.div>

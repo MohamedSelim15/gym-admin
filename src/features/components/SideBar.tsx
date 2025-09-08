@@ -4,13 +4,8 @@ import { motion } from "framer-motion";
 
 const SideBar = () => {
   const links = [
-    {
-      to: "/",
-      icon: "fa-solid fa-chart-simple",
-      label: "Dashboard",
-      active: true,
-    },
-    { to: "/exercise", icon: "fa-solid fa-dumbbell", label: "Exercises" },
+    { to: "/", icon: "fa-solid fa-chart-simple",label: "Dashboard",active: true,},
+    { to: "/exercise", icon: "fa-solid fa-dumbbell rotate-135", label: "Exercises" },
     { to: "/customer", icon: "fa-solid fa-users", label: "Customer" },
     { to: "/teamwork", icon: "fa-solid fa-people-group", label: "Team Work" },
     { to: "/marketing", icon: "fa-solid fa-shop", label: "Marketing" },
