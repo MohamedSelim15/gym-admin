@@ -1,17 +1,16 @@
 @import "tailwindcss";
 /* @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Love+Ya+Like+A+Sister&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Permanent+Marker&family=Playwrite+PL:wght@100..400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"); */
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   margin-right: 2px;
   background-color: #b7b7b7;
   width: 10px;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   /* background-color: #9f9f9f; */
   background-color: #213448;
   border-radius: 4px;
 }
-
 
 .text20medInter {
   font-family: "Inter", sans-serif;
@@ -19,10 +18,35 @@
   font-weight: 500;
 }
 
-.primaryColor{
+.primaryColor {
   background-color: #213448;
 }
 
-.primaryColorText{
+.primaryColorText {
   color: #213448;
+}
+.inputLabel {
+  font-family: "Inter", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #547792;
+}
+.input {
+  border: 1px solid #94b4c1;
+  border-radius: 10px;
+  padding: 17px 23px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+.input:hover {
+  transform: scale(1.02);
+}
+
+input:focus {
+  transform: scale(1.02);
+  border: 1px solid #213448;
+  box-shadow: 0 0 5px rgba(33, 52, 72, 0.5);
 }

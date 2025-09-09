@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { K } from "../../constant";
+import { K } from "../../../constant";
 import { motion } from "framer-motion";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 
 const listVariants = {
@@ -58,7 +58,7 @@ const Exercises = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 25 }}
       className="w-full h-full flex flex-col py-[30px] px-[40px]"
-      >
+    >
       <Header
         pageName="Exercises"
         pageLogo="fa-solid fa-dumbbell rotate-135"
