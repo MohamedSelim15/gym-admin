@@ -2,6 +2,7 @@ import Login from "./features/auth/Login";
 import SignUp from "./features/auth/SignUp";
 import SideBar from "./features/components/SideBar";
 import { AnimatePresence } from "framer-motion";
+
 import { Routes, Route ,useLocation} from "react-router-dom";
 
 import Dashboard from "./features/Pages/Dashboard";

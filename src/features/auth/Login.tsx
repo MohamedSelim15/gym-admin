@@ -8,7 +8,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Link , useNavigate} from "react-router-dom";
-import { loginFun } from "./authSlice";
+import { loginFun } from "../Slices/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();

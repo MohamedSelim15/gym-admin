@@ -1,7 +1,7 @@
 import api from "./axios";
 import type { User } from "../types/index";
 interface LoginResponse {
-  status: String;
+  status: string;
   token: string;
   data: {
     user: User;
