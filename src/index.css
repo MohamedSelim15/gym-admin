@@ -1,9 +1,18 @@
 @import "tailwindcss";
 /* @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Love+Ya+Like+A+Sister&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Permanent+Marker&family=Playwrite+PL:wght@100..400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"); */
 
-body{
-  height: 300vh;
+::-webkit-scrollbar{
+  margin-right: 2px;
+  background-color: #b7b7b7;
+  width: 10px;
 }
+::-webkit-scrollbar-thumb{
+  /* background-color: #9f9f9f; */
+  background-color: #213448;
+  border-radius: 4px;
+}
+
+
 .text20medInter {
   font-family: "Inter", sans-serif;
   font-size: 20px;

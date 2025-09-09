@@ -2,7 +2,7 @@ import Login from "./features/auth/Login";
 import SignUp from "./features/auth/SignUp";
 import SideBar from "./features/components/SideBar";
 import { AnimatePresence } from "framer-motion";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route ,useLocation} from "react-router-dom";
 
 import Dashboard from "./features/Pages/Dashboard";
 import Exercise from "./features/Pages/Exercises";
@@ -14,6 +14,8 @@ import Settings from "./features/Pages/Settings";
 import Marketing from "./features/Pages/Marketing";
 
 function App() {
+  const {pathname} = useLocation();
+  const hideSidebar =  pathname === "/signup" ;
   return (
     <div>
       {/* <AnimatePresence mode='wait'>
@@ -23,6 +25,7 @@ function App() {
           </Routes>
           </AnimatePresence> */}
 
+      {!hideSidebar &&
       <div className="flex">
         <SideBar />
             <div className="flex-1 ml-20 xl:ml-62 p-3">
@@ -38,7 +41,8 @@ function App() {
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
-      </div>
+      </div>}
+
     </div>
   );
 }

@@ -7,10 +7,11 @@ import { CiUser, CiLock, CiUnlock } from "react-icons/ci";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { loginFun } from "./authSlice";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [lock, setLock] = useState(true);
   const [focused, setFocused] = useState({
     email: false,
@@ -27,6 +28,7 @@ const Login = () => {
     e.preventDefault();
     if (!email || !password) return;
     dispatch(loginFun({ email, password }));
+    navigate("/dashboard")
   };
 
   return (
@@ -137,7 +139,7 @@ const Login = () => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="xl:flex lg:flex md:flex hidden xl:w-1/2 lg:w-1/2 md:w-1/2 flex-col items-center justify-center p-10 text-center mb-6">
+        <div className="xl:flex lg:flex md:flex hidden xl:w-1/2 lg:w-1/2 md:w-1/2 flex-col items-center justify-center text-white p-10 text-center mb-6">
           <h1 className="text-5xl font-bold mb-5">Hello, Friend!</h1>
           <p className="mb-15 w-60">
             Enter your personal details and start your journey with us

@@ -133,7 +133,7 @@ const [focused, setFocused] = useState({
           )}
         </AnimatePresence>
 
-        <div className="xl:flex lg:flex md:flex hidden xl:w-1/2 lg:w-1/2 md:w-1/2  flex-col items-center justify-center p-10 text-center mb-6">
+        <div className="xl:flex lg:flex md:flex hidden xl:w-1/2 lg:w-1/2 md:w-1/2  flex-col items-center justify-center text-white p-10 text-center mb-6">
           <h1 className="text-5xl font-bold mb-5 ">Welcome Back!</h1>
           <p className=" mb-15 w-60">
             To keep connected with us please login with personal info
