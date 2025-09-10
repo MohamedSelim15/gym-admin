@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Input from "../../components/Input";
-import ImageUpload from "../../components/ImageUpload";
-import uploadImg from "../../../assets/SVG/upload-solid-full.svg";
+import Input from "../components/Input";
+import ImageUpload from "../components/ImageUpload";
+import uploadImg from "../../assets/SVG/upload-solid-full.svg";
 
 export default function AddExercise() {
   const [image, setImage] = useState(null);
@@ -19,7 +19,7 @@ export default function AddExercise() {
     "Balance",
   ]);
 
-  function handleChange(field, value) {
+  function handleChange(field: string, value: string) {
     if (field === "category" && value === "add_new") {
       const newCategory = prompt("Enter new category:");
       if (newCategory && !categories.includes(newCategory)) {
@@ -40,7 +40,7 @@ export default function AddExercise() {
   useEffect(() => {
     console.log(exerciseData);
     console.log(image);
-  }, [image]);
+  }, [exerciseData, image]);
 
   return (
     <div className="w-full h-full flex flex-col py-[20px] px-[40px] gap-[50px]">
@@ -52,34 +52,30 @@ export default function AddExercise() {
           label={"Exercise Name"}
           type={"text"}
           placeholder={"Enter exercise name"}
-          onChange={(e) => handleChange("name", e.target.value)}
-          value={exerciseData.name}
-        />
+          onChange={(e: { target: { value: string; }; }) => handleChange("name", e.target.value)}
+          value={exerciseData.name} options={undefined} withAdd={undefined}        />
 
         <Input
           label={"Category"}
           type={"select"}
           options={categories}
           withAdd
-          onChange={(val) => handleChange("category", val)}
-          value={exerciseData.category}
-        />
+          onChange={(val: string) => handleChange("category", val)}
+          value={exerciseData.category} placeholder={undefined}        />
 
         <Input
           label={"Target Muscles"}
           type={"text"}
           placeholder={"e.g. Chest, Arms, Legs"}
-          onChange={(e) => handleChange("targetMuscles", e.target.value)}
-          value={exerciseData.targetMuscles}
-        />
+          onChange={(e: { target: { value: string; }; }) => handleChange("targetMuscles", e.target.value)}
+          value={exerciseData.targetMuscles} options={undefined} withAdd={undefined}        />
 
         <Input
           label={"Difficulty Level"}
           type={"select"}
           options={["Easy", "Medium", "Hard"]}
-          onChange={(val) => handleChange("difficulty", val)}
-          value={exerciseData.difficulty}
-        />
+          onChange={(val: string) => handleChange("difficulty", val)}
+          value={exerciseData.difficulty} placeholder={undefined} withAdd={undefined}        />
         <div className="flex flex-col ">
           <label className="inputLabel mb-2">Upload Media</label>
           <ImageUpload

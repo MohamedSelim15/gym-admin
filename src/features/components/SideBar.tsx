@@ -4,8 +4,17 @@ import { motion } from "framer-motion";
 
 const SideBar = () => {
   const links = [
-    { to: "/", icon: "fa-solid fa-chart-simple",label: "Dashboard",active: true,},
-    { to: "/exercise", icon: "fa-solid fa-dumbbell rotate-135", label: "Exercises" },
+    {
+      to: "/",
+      icon: "fa-solid fa-chart-simple",
+      label: "Dashboard",
+      active: true,
+    },
+    {
+      to: "/exercise",
+      icon: "fa-solid fa-dumbbell rotate-135",
+      label: "Exercises",
+    },
     { to: "/customer", icon: "fa-solid fa-users", label: "Customer" },
     { to: "/teamwork", icon: "fa-solid fa-people-group", label: "Team Work" },
     { to: "/marketing", icon: "fa-solid fa-shop", label: "Marketing" },
@@ -18,15 +27,15 @@ const SideBar = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.2, 
-        delayChildren:0.6,
+        staggerChildren: 0.2,
+        delayChildren: 0.6,
       },
     },
   };
 
   const item = {
     hidden: { x: -50, opacity: 0 },
-    visible: { x: 0, opacity: 1  },
+    visible: { x: 0, opacity: 1 },
   };
   const location = useLocation();
   const currentPath = location.pathname;
@@ -48,8 +57,7 @@ const SideBar = () => {
         initial="hidden"
         animate="visible"
         className="space-y-2"
-          transition={{ delayChildren: 0.6, staggerChildren: 0.3 }} 
-
+        transition={{ delayChildren: 0.6, staggerChildren: 0.3 }}
       >
         {links.map((link, index) => {
           const isActive = currentPath === link.to;

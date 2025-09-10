@@ -1,18 +1,15 @@
-import Login from "./features/auth/Login";
-import SignUp from "./features/auth/SignUp";
 import SideBar from "./features/components/SideBar";
-import { AnimatePresence } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import Dashboard from "./features/Pages/Dashboard";
-import Exercise from "./features/Pages/exercises/Exercises";
-import Customer from "./features/Pages/Customer";
-import TeamWork from "./features/Pages/TeamWork";
-import Notification from "./features/Pages/Notification";
-import Reviews from "./features/Pages/Reviews";
-import Settings from "./features/Pages/Settings";
-import Marketing from "./features/Pages/Marketing";
-import AddExercise from "./features/Pages/exercises/AddExercise";
+import Dashboard from "./features/dashboard/Dashboard";
+import Exercise from "./features/exercises/Exercises";
+import Customer from "./features/customer/Customer";
+import TeamWork from "./features/teamwork/TeamWork";
+import Notification from "./features/notification/Notification";
+import Reviews from "./features/reviews/Reviews";
+import Settings from "./features/setting/Settings";
+import Marketing from "./features/marketing/Marketing";
+import AddExercise from "./features/exercises/AddExercise";
 
 function App() {
   const { pathname } = useLocation();

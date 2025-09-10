@@ -36,7 +36,6 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="grid grid-cols-4 gap-4 px-4 py-2">
-
           <div className="bg-white flex flex-col shadow rounded-2xl p-3 border border-[#94B4C1] h-[80px] text-sm">
             <span className="border-b-[1px] w-fit mb-2 border-dashed">
               Gross sales

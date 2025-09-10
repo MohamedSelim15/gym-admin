@@ -7,8 +7,8 @@ import { CiUser, CiLock, CiUnlock } from "react-icons/ci";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Link , useNavigate} from "react-router-dom";
-import { loginFun } from "../Slices/authSlice";
+import { Link, useNavigate } from "react-router-dom";
+import { loginFun } from "./Slices/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     if (!email || !password) return;
     dispatch(loginFun({ email, password }));
-    navigate("/dashboard")
+    navigate("/dashboard");
   };
 
   return (
@@ -48,9 +48,7 @@ const Login = () => {
             transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
             className="flex flex-col items-center h-[100%] xl:w-1/2 lg:w-1/2 md:w-1/2 w-full rounded-4xl p-5 bg-white"
           >
-            <h1 className="text-4xl font-bold text-[#213448] mt-10">
-              Sign in
-            </h1>
+            <h1 className="text-4xl font-bold text-[#213448] mt-10">Sign in</h1>
 
             <div className="flex xl:flex-row lg:flex-row xl:text-4xl lg:text-4xl xl:gap-6 gap-4 mt-6 text-xl">
               <div className="xl:p-3 xl:border-2 border-[#213448] rounded-full cursor-pointer">
