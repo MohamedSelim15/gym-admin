@@ -1,5 +1,6 @@
 import { Listbox } from "@headlessui/react";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 export default function Input({
   label,
@@ -9,9 +10,12 @@ export default function Input({
   onChange,
   options,
   withAdd,
+  flex="col",
 }) {
+
+  const pathname = useLocation();
   return (
-    <div className="flex flex-col w-full">
+    <div className={`flex flex-${flex} w-full `}>
       <label className="inputLabel mb-2">{label}</label>
 
       {type === "text" && (
@@ -40,8 +44,8 @@ export default function Input({
                 className={`
                   w-full flex justify-between items-center
                   border border-[#94B4C1] rounded-[10px] 
-                  py-[17px] px-[23px] 
-                  text-[18px] font-medium
+                ${pathname.pathname === "/reviews" ? "ml-4 py-[5px] px-[23px] relative top-0 " : "py-[17px] px-[23px] font-medium"}
+                  text-[18px] font-
                   transition-all duration-300 ease-in-out
                   outline-none
                   hover:scale-102
@@ -57,7 +61,9 @@ export default function Input({
                 )}
               </Listbox.Button>
 
-              <Listbox.Options className="absolute mt-2 w-full bg-white border p-[10px] border-gray-200 rounded-lg shadow-lg z-10">
+              <Listbox.Options className={`absolute mt-2
+                              ${pathname.pathname === "/reviews" ? "w-[150px]" : "w-full"}
+               bg-white border p-[10px] border-gray-200 rounded-lg shadow-lg z-10`}>
                 {options.map((option, index) => (
                   <Listbox.Option
                     key={index}
