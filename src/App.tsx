@@ -26,7 +26,7 @@ function App() {
       {!hideSidebar && (
         <div className="flex">
           <SideBar />
-          <div className="flex-1 ml-20 xl:ml-62 p-3">
+          <div className="flex-1 lg:ml-20 xl:ml-62 p-3">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/exercise" element={<Exercise />} />
