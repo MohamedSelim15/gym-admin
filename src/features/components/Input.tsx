@@ -2,6 +2,7 @@ import { Listbox } from "@headlessui/react";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
+
 export default function Input({
   label,
   type,
@@ -13,6 +14,7 @@ export default function Input({
   inputClassName,
   lableClassName,
   listClassName,
+  flex = "col",
 }) {
   const pathname = useLocation();
   const defaultListClassName =
@@ -23,7 +25,7 @@ export default function Input({
     <div className="flex flex-col w-full">
       <label className={`${lableClassName} `}>{label}</label>
 
-      {type === "text" && (
+      {(type === "text" || type === "email" || type === "password") && (
         <input
           type={type}
           placeholder={placeholder}
@@ -35,6 +37,9 @@ export default function Input({
           }
             transition-all duration-300 ease-in-out
             outline-none
+            border border-[#94B4C1] rounded-[10px]
+            py-[17px] px-[23px]
+            text-[18px] font-medium
             hover:scale-102
             focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
             

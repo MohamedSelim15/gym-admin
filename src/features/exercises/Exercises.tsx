@@ -189,7 +189,7 @@ const Exercises = () => {
       />
 
       <div className="flex w-[80%] sm:w-full items-center justify-center flex-col border-[1px] border-[#CFD9E9] rounded-[16px] min-h-screen">
-        <div className="sm:grid hidden grid-cols-7 w-full py-[4px] sm:py-[16px]  sm:px-[35px] items-center relative top-2 ">
+        <div className="sm:grid hidden grid-cols-6 w-full py-[4px] sm:py-[16px]  sm:px-[35px] items-center relative top-2 ">
           <p className="text-[12px] text-[#15243F] font-semibold">Video</p>
           <p className="text-[12px] text-[#15243F] font-semibold">Name</p>
           <p className="text-[12px] text-[#15243F] font-semibold">Category</p>
@@ -242,7 +242,7 @@ const ExerciseCard = ({ exercise, deleteExercise }) => {
     <motion.div
       variants={cardVariants}
       className="
-        grid grid-cols-1 sm:grid-cols-7
+        grid grid-cols-1 sm:grid-cols-6
         w-[95%] sm:w-full  
         mx-auto             
         border-t sm:border-t border-[#CFD9E9]

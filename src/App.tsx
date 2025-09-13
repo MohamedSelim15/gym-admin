@@ -1,3 +1,6 @@
+import Login from "./features/auth/Login.js";
+import SignUp from "./features/auth/SignUp.js";
+
 import SideBar from "./features/components/SideBar";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { ModalProvider } from "./core/context/ModalContext.jsx";
@@ -10,6 +13,7 @@ import Reviews from "./features/reviews/Reviews";
 import Settings from "./features/setting/Settings";
 import Marketing from "./features/marketing/Marketing";
 import AddExercise from "./features/exercises/AddExercise";
+import AddTeamWork from "./features/teamwork/AddTeamWork";
 import AddCustomer from "./features/customer/AddCustomer.js";
 import AddMarketing from "./features/marketing/AddMarkting.js";
 
@@ -19,12 +23,10 @@ function App() {
   return (
     <ModalProvider>
       <div>
-        {/* <AnimatePresence mode='wait'>
-          <Routes>
+          {/* <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-          </Routes>
-          </AnimatePresence> */}
+          </Routes> */}
 
         {!hideSidebar && (
           <div className="flex">
@@ -41,6 +43,7 @@ function App() {
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/exercise/add" element={<AddExercise />} />
                 <Route path="/customer/add" element={<AddCustomer />} />
+                <Route path="/teamwork/add" element={<AddTeamWork />} />
                 <Route path="/marketing/add" element={<AddMarketing />} />
               </Routes>
             </div>

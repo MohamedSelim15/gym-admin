@@ -26,9 +26,10 @@ export const InputSelect = ({
           >
             {filter || "All"}
             {open ? (
-              <ChevronUp className="absolute right-2 top-2 h-5 w-5 text-gray-500" />
+              <ChevronUp className="absolute right-2 top-3 h-5 w-5 text-gray-500" />
             ) : (
-              <ChevronDown className="absolute right-2 top-2 h-5 w-5 text-gray-500" />
+              <ChevronDown className="absolute right-2 top-3 h-5 w-5 text-gray-500" />
+
             )}
           </Listbox.Button>
           <Listbox.Options className="absolute mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10">

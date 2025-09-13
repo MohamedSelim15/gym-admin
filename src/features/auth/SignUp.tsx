@@ -67,7 +67,7 @@ const [focused, setFocused] = useState({
                     className="pl-12 pr-4 py-3 w-full border-none bg-[#F2EFE7] text-[#213448] placeholder:text-[#213448]"
                     />
                 </div>
-                
+
                 <div className="relative">
                   <CiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-[#213448] text-xl" />
                   <input
@@ -91,7 +91,7 @@ const [focused, setFocused] = useState({
                     type={lock ? "password" : "text"}
                     onFocus={() => setFocused({ ...focused, password: true })}
                     onBlur={() => setFocused({ ...focused, password: false })}
-                    placeholder={`${focused.password ? "" : "Email"}`}
+                    placeholder={`${focused.password ? "" : "Password"}`}
                     className="pl-12 pr-4 py-3 w-full border-none text-[#213448] bg-[#F2EFE7]  placeholder:text-[#213448]"
                   />
                 </div>
@@ -109,7 +109,7 @@ const [focused, setFocused] = useState({
                       Role
                     </option>
                     <option value="user">User</option>
-                    <option value="admin">Admin</option>
+                    <option value="coach">Coach</option>
                   </select>
                 </div>
               </div>
