@@ -1,5 +1,6 @@
 import { Listbox } from "@headlessui/react";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 export default function Input({
   label,
@@ -59,7 +60,15 @@ export default function Input({
                 )}
               </Listbox.Button>
 
-              <Listbox.Options className="absolute mt-2 w-full bg-white border p-[10px] border-gray-200 rounded-lg shadow-lg z-10">
+              <Listbox.Options
+                className={`absolute mt-2
+                              ${
+                                pathname.pathname === "/reviews"
+                                  ? "w-[150px]"
+                                  : "w-full"
+                              }
+               bg-white border p-[10px] border-gray-200 rounded-lg shadow-lg z-10`}
+              >
                 {options.map((option, index) => (
                   <Listbox.Option
                     key={index}

@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { User } from "../../core/types/index";
-import { login } from "../../core/api/authApi";
-import { ServerFailure } from "../../core/utils/ApiError";
-import { K } from "../../constant";
+import type { User } from "../../../core/types/index";
+import { login } from "../../../core/api/authApi";
+import { ServerFailure } from "../../../core/utils/ApiError";
+import { K } from "../../../constant";
 
 interface AuthState {
   user: User | null;

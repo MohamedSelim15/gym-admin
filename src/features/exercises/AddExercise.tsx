@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Input from "../../components/Input";
-import ImageUpload from "../../components/ImageUpload";
-import uploadImg from "../../../assets/SVG/upload-solid-full.svg";
-import { useModal } from "../../../core/context/ModalContext.jsx";
-import Button from "../../components/Button.js";
+import Input from "../components/Input.js";
+import ImageUpload from "../components/ImageUpload.js";
+import uploadImg from "../../assets/SVG/upload-solid-full.svg";
+import { useModal } from "../../core/context//ModalContext.jsx";
+import Button from "../components/Button.js";
 
 export default function AddExercise() {
   const { openModal, closeModal } = useModal();
@@ -22,7 +22,7 @@ export default function AddExercise() {
     "Balance",
   ]);
 
-  function handleChange(field, value) {
+  function handleChange(field: string, value: string) {
     if (field === "category" && value === "add_new") {
       // open modal and pass callback
       openModal(
@@ -52,7 +52,7 @@ export default function AddExercise() {
   useEffect(() => {
     console.log(exerciseData);
     console.log(image);
-  }, [image]);
+  }, [exerciseData, image]);
 
   return (
     <div className="w-full h-full flex flex-col py-[10px] md:py-[20px] px-[5px] md:px-[40px] gap-[10px] md:gap-[50px]">

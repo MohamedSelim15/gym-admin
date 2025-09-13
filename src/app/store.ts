@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../features/Slices/authSlice";
+import authReducer from "../features/auth/Slices/authSlice";
 import { loggerMiddleware } from "./loggerMiddleware";
+import fetchExercisesReducer from "../features/exercises/slices/exercisesSlice";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    fetchExercises: fetchExercisesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(loggerMiddleware),

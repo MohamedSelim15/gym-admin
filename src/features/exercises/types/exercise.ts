@@ -1,8 +1,9 @@
 export interface Exercise{
     id: number;
     video: string;
+    img: string;
     name: string;
     category: string;
     targetMuscles: string;
-    difficulty: string;
+    difficultyLevel: string;
 }

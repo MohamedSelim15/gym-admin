@@ -1,6 +1,6 @@
-import api from "./axios";
+import api from "../../../core/api/axios";
 import type { Exercise } from "../types/exercise";
-import { K } from "../../constant";
+import { K } from "../../../constant";
 
 interface exerciseResponse {
   status: string;
