@@ -1,15 +1,17 @@
 import SideBar from "./features/components/SideBar";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { ModalProvider } from "./core/context/ModalContext";
-import Dashboard from "./features/Pages/Dashboard";
-import Exercise from "./features/Pages/exercises/Exercises";
-import Customer from "./features/Pages/Customer";
-import TeamWork from "./features/Pages/TeamWork";
-import Notification from "./features/Pages/Notification";
-import Reviews from "./features/Pages/Reviews";
-import Settings from "./features/Pages/Settings";
-import Marketing from "./features/Pages/Marketing";
-import AddExercise from "./features/Pages/exercises/AddExercise";
+import { ModalProvider } from "./core/context/ModalContext.jsx";
+import Dashboard from "./features/dashboard/Dashboard";
+import Exercise from "./features/exercises/Exercises";
+import Customer from "./features/customer/Customer";
+import TeamWork from "./features/teamwork/TeamWork";
+import Notification from "./features/notification/Notification";
+import Reviews from "./features/reviews/Reviews";
+import Settings from "./features/setting/Settings";
+import Marketing from "./features/marketing/Marketing";
+import AddExercise from "./features/exercises/AddExercise";
+import AddCustomer from "./features/customer/AddCustomer.js";
+import AddMarketing from "./features/marketing/AddMarkting.js";
 
 function App() {
   const { pathname } = useLocation();
@@ -24,21 +26,24 @@ function App() {
           </Routes>
           </AnimatePresence> */}
 
-      {!hideSidebar && (
-        <div className="flex">
-          <SideBar />
-          <div className="flex-1 lg:ml-20 xl:ml-62 p-3">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/exercise" element={<Exercise />} />
-              <Route path="/customer" element={<Customer />} />
-              <Route path="/teamwork" element={<TeamWork />} />
-              <Route path="/marketing" element={<Marketing />} />
-              <Route path="/notification" element={<Notification />} />
-              <Route path="/reviews" element={<Reviews />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/exercise/add" element={<AddExercise />} />
-            </Routes>
+        {!hideSidebar && (
+          <div className="flex">
+            <SideBar />
+            <div className="flex-1 lg:ml-20 xl:ml-62 p-3">
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/exercise" element={<Exercise />} />
+                <Route path="/customer" element={<Customer />} />
+                <Route path="/teamwork" element={<TeamWork />} />
+                <Route path="/marketing" element={<Marketing />} />
+                <Route path="/notification" element={<Notification />} />
+                <Route path="/reviews" element={<Reviews />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/exercise/add" element={<AddExercise />} />
+                <Route path="/customer/add" element={<AddCustomer />} />
+                <Route path="/marketing/add" element={<AddMarketing />} />
+              </Routes>
+            </div>
           </div>
         )}
       </div>

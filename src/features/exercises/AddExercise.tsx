@@ -21,7 +21,9 @@ export default function AddExercise() {
     "Flexibility",
     "Balance",
   ]);
-
+  function handleSubmit() {
+    console.log(exerciseData);
+  }
   function handleChange(field: string, value: string) {
     if (field === "category" && value === "add_new") {
       // open modal and pass callback
@@ -115,6 +117,15 @@ export default function AddExercise() {
           {image && (
             <img src={image} alt="Uploaded" className="h-48 w-48 mt-4" />
           )}
+        </div>
+        <div className="flex justify-end">
+          <Button
+            onClick={handleSubmit}
+            className="py-[5px] px-[10px] md:text-[18px] text-[12px] md:py-[15px] md:px-[40px] rounded-[20px] hover:bg-[#1f2a38] transition-transform duration-200 ease-in-out hover:border-[#1f2a38] hover:scale-103"
+            type="primary"
+          >
+            Save Exercise
+          </Button>
         </div>
       </div>
     </div>

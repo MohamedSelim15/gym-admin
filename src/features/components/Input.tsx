@@ -14,6 +14,7 @@ export default function Input({
   lableClassName,
   listClassName,
 }) {
+  const pathname = useLocation();
   const defaultListClassName =
     "w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium ";
   const defaultInputClassName =
@@ -27,11 +28,16 @@ export default function Input({
           type={type}
           placeholder={placeholder}
           className={`
-            ${inputClassName || defaultInputClassName}
+            ${inputClassName || defaultInputClassName} ${
+            pathname.pathname === "/reviews"
+              ? "ml-4 py-[5px] px-[23px] relative top-0 "
+              : "py-[17px] px-[23px] font-medium"
+          }
             transition-all duration-300 ease-in-out
             outline-none
             hover:scale-102
             focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
+            
           `}
           value={value}
           onChange={onChange}
@@ -102,6 +108,25 @@ export default function Input({
             </div>
           )}
         </Listbox>
+      )}
+      {type === "date" && (
+        <input
+          type="date"
+          className={`
+      ${inputClassName || defaultInputClassName}
+      bg-white
+      text-[#15243F]
+      transition-all duration-300 ease-in-out
+      outline-none
+      hover:scale-102
+      focus:scale-102
+      focus:border-[#213448]
+      focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
+    `}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
       )}
     </div>
   );
