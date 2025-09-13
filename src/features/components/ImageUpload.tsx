@@ -5,7 +5,8 @@ const ImageUpload = ({
   label,
   className,
   uploadImg,
-  buttonClassName,
+  iconClassName,
+  lableClassName,
 }) => {
   const fileUploadRef = useRef();
 
@@ -27,10 +28,10 @@ const ImageUpload = ({
       typeof="button"
       onClick={handleImageUpload}
     >
-      <div className={` ${buttonClassName}`}>
+      <div className={` ${iconClassName}`}>
         <img src={uploadImg} alt="Upload" />
       </div>
-      <p className="primaryColorText text-[18px] font-[500px]">{label}</p>
+      <p className={`${lableClassName}`}>{label}</p>
 
       <input
         type="file"

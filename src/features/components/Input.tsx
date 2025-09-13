@@ -9,24 +9,29 @@ export default function Input({
   onChange,
   options,
   withAdd,
+  inputClassName,
+  lableClassName,
+  listClassName,
 }) {
+  const defaultListClassName =
+    "w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium ";
+  const defaultInputClassName =
+    "border border-[#94B4C1] rounded-[10px] md:text-[18px] text-[14px] py-[7px] md:py-[17px] px-[11px] md:px-[23px] font-medium ";
   return (
     <div className="flex flex-col w-full">
-      <label className="inputLabel mb-2">{label}</label>
+      <label className={`${lableClassName} `}>{label}</label>
 
       {type === "text" && (
         <input
           type={type}
           placeholder={placeholder}
-          className=" 
-            border border-[#94B4C1] rounded-[10px] 
-            py-[17px] px-[23px] 
-            text-[18px] font-medium
+          className={`
+            ${inputClassName || defaultInputClassName}
             transition-all duration-300 ease-in-out
             outline-none
             hover:scale-102
             focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
-          "
+          `}
           value={value}
           onChange={onChange}
         />
@@ -38,10 +43,7 @@ export default function Input({
             <div className="relative">
               <Listbox.Button
                 className={`
-                  w-full flex justify-between items-center
-                  border border-[#94B4C1] rounded-[10px] 
-                  py-[17px] px-[23px] 
-                  text-[18px] font-medium
+                  ${listClassName || defaultListClassName}
                   transition-all duration-300 ease-in-out
                   outline-none
                   hover:scale-102

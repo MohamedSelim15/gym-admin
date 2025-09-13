@@ -25,7 +25,7 @@
 .primaryColorText {
   color: #213448;
 }
-.inputLabel {
+/* .inputLabel {
   font-family: "Inter", sans-serif;
   font-size: 22px;
   font-weight: 500;
@@ -49,4 +49,4 @@ input:focus {
   transform: scale(1.02);
   border: 1px solid #213448;
   box-shadow: 0 0 5px rgba(33, 52, 72, 0.5);
-}
+} */

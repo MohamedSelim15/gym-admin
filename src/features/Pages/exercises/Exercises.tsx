@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { K } from "../../../constant";
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
@@ -42,7 +42,115 @@ const Exercises = () => {
       targetMuscles: "Abs",
       difficultyLevel: "Hard",
     },
+    {
+      img: K.LOGO,
+      name: "Push Up",
+      category: "Strength",
+      targetMuscles: "Chest",
+      difficultyLevel: "Easy",
+    },
+    {
+      img: K.LOGO,
+      name: "Squat",
+      category: "Strength",
+      targetMuscles: "Legs",
+      difficultyLevel: "Medium",
+    },
+    {
+      img: K.LOGO,
+      name: "Plank",
+      category: "Core",
+      targetMuscles: "Abs",
+      difficultyLevel: "Hard",
+    },
+    {
+      img: K.LOGO,
+      name: "Push Up",
+      category: "Strength",
+      targetMuscles: "Chest",
+      difficultyLevel: "Easy",
+    },
+    {
+      img: K.LOGO,
+      name: "Squat",
+      category: "Strength",
+      targetMuscles: "Legs",
+      difficultyLevel: "Medium",
+    },
+    {
+      img: K.LOGO,
+      name: "Plank",
+      category: "Core",
+      targetMuscles: "Abs",
+      difficultyLevel: "Hard",
+    },
+    {
+      img: K.LOGO,
+      name: "Push Up",
+      category: "Strength",
+      targetMuscles: "Chest",
+      difficultyLevel: "Easy",
+    },
+    {
+      img: K.LOGO,
+      name: "Squat",
+      category: "Strength",
+      targetMuscles: "Legs",
+      difficultyLevel: "Medium",
+    },
+    {
+      img: K.LOGO,
+      name: "Plank",
+      category: "Core",
+      targetMuscles: "Abs",
+      difficultyLevel: "Hard",
+    },
+    {
+      img: K.LOGO,
+      name: "Push Up",
+      category: "Strength",
+      targetMuscles: "Chest",
+      difficultyLevel: "Easy",
+    },
+    {
+      img: K.LOGO,
+      name: "Squat",
+      category: "Strength",
+      targetMuscles: "Legs",
+      difficultyLevel: "Medium",
+    },
+    {
+      img: K.LOGO,
+      name: "Plank",
+      category: "Core",
+      targetMuscles: "Abs",
+      difficultyLevel: "Hard",
+    },
+    {
+      img: K.LOGO,
+      name: "Push Up",
+      category: "Strength",
+      targetMuscles: "Chest",
+      difficultyLevel: "Easy",
+    },
+    {
+      img: K.LOGO,
+      name: "Squat",
+      category: "Strength",
+      targetMuscles: "Legs",
+      difficultyLevel: "Medium",
+    },
+    {
+      img: K.LOGO,
+      name: "Plank",
+      category: "Core",
+      targetMuscles: "Abs",
+      difficultyLevel: "Hard",
+    },
   ]);
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const navigate = useNavigate();
 
   function deleteExercise(index) {
     const newExercises = [...exercises];
@@ -50,14 +158,28 @@ const Exercises = () => {
     setExercises(newExercises);
   }
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <motion.div
       initial={{ y: -500, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 25 }}
-      className="w-full h-full flex flex-col py-[30px] px-[40px]"
+      className="w-full min-h-screen flex flex-col py-[10px] md:py-[30px] px-[15px] md:px-[40px] relative"
     >
       <Header
         pageName="Exercises"
@@ -83,7 +205,7 @@ const Exercises = () => {
         </div>
 
         <motion.div
-          className="flex flex-col w-full sm:py-[15px]"
+          className="flex flex-col w-full items-center justify-center px-[5px] py-[5px] md:px-[15px] sm:py-[15px]"
           variants={listVariants}
           initial="hidden"
           animate="visible"
@@ -97,6 +219,20 @@ const Exercises = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* Scroll-to-top button */}
+      {showScrollTop && (
+        <motion.button
+          onClick={scrollToTop}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.3 }}
+          className="fixed bottom-6 right-6 p-3 rounded-[10px] bg-[#213448] text-white  hover:bg-white hover:text-[#213448] hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_rgba(33,52,72,0.5)] cursor-pointer "
+        >
+          <i className="fa-solid fa-arrow-up"></i>
+        </motion.button>
+      )}
     </motion.div>
   );
 };
@@ -110,22 +246,22 @@ const ExerciseCard = ({ exercise, deleteExercise }) => {
       className="
         grid grid-cols-1 sm:grid-cols-6
         w-full border-t sm:border-t border-[#CFD9E9]
-        py-4 px-5 sm:px-[35px] items-center
+        py-[4px] sm:py-[16px] px-[6px] sm:px-[35px] items-center
         hover:bg-[#F9FAFB] transition-colors
         sm:rounded-none sm:shadow-none
-        rounded-xl shadow-sm bg-white mb-4 sm:mb-0
+        rounded-lg shadow-sm bg-white mb-2 sm:mb-0
       "
     >
       <div className="flex justify-center sm:justify-start">
         <img
           src={exercise.img}
           alt={exercise.name}
-          className="w-[60px] h-[60px] border border-[#E5E7EB] rounded-xl object-cover"
+          className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] border border-[#E5E7EB] rounded-lg sm:rounded-xl object-cover"
         />
       </div>
 
       {/* Mobile view */}
-      <div className="sm:hidden text-center mt-3 space-y-2 text-sm text-[#15243F]">
+      <div className="flex flex-col sm:hidden mt-2 space-y-1 text-sm text-[#15243F] items-center">
         <p>
           <span className="font-semibold text-gray-600">Name:</span>{" "}
           {exercise.name}
@@ -156,7 +292,7 @@ const ExerciseCard = ({ exercise, deleteExercise }) => {
         {exercise.difficultyLevel}
       </p>
 
-      <div className="flex gap-4 justify-center sm:justify-end mt-3 sm:mt-0">
+      <div className="flex gap-2 sm:gap-4 justify-center sm:justify-end mt-2 sm:mt-0">
         <button className="primaryColorText hover:text-blue-700 text-lg cursor-pointer">
           <i className="fa-solid fa-pen"></i>
         </button>
