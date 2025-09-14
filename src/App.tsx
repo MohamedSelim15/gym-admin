@@ -11,7 +11,7 @@ import Settings from "./features/setting/Settings";
 import Marketing from "./features/marketing/Marketing";
 import AddExercise from "./features/exercises/AddExercise";
 import AddCustomer from "./features/customer/AddCustomer.js";
-import AddMarketing from "./features/marketing/AddMarkting.js";
+import AddMarketing from "./features/marketing/AddReel.js";
 
 function App() {
   const { pathname } = useLocation();

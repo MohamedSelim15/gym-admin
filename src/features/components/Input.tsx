@@ -43,6 +43,22 @@ export default function Input({
           onChange={onChange}
         />
       )}
+      {type === "textarea" && (
+        <textarea
+          placeholder={placeholder}
+          className={`
+      ${inputClassName || defaultInputClassName}
+      whitespace-normal break-words resize-none
+      transition-all duration-300 ease-in-out
+      outline-none
+      hover:scale-102
+      focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
+    `}
+          value={value}
+          onChange={onChange}
+          rows={4} // default height
+        />
+      )}
 
       {type === "select" && (
         <Listbox value={value} onChange={onChange}>
@@ -58,7 +74,7 @@ export default function Input({
                   ${!value ? "text-[#7f7f7f]" : "text-[#15243F]"}
                 `}
               >
-                {value || "Select category"}
+                {value || placeholder}
                 {open ? (
                   <ChevronUp className="w-5 h-5 text-gray-500" />
                 ) : (
