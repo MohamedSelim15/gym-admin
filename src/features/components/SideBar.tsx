@@ -49,11 +49,11 @@ const SideBar = () => {
     <>
       <button 
       onClick={toggleSidebar}
-      className="lg:hidden primaryColor text-white p-3 rounded-md fixed top-4 left-4 z-51">
+      className="xl:hidden primaryColor text-white p-3 rounded-md fixed top-4 left-4 z-51">
         <i className={`fa-solid ${isSidebarOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
         <aside 
-        className={` primaryColor  ${isSidebarOpen ? "block" : "hidden"} lg:flex flex-col fixed xl:w-62 w-20 shadow-md p-5 min-h-[140vh] z-50 `}>
+        className={` primaryColor  ${isSidebarOpen ? "block" : "hidden"} xl:flex flex-col fixed xl:w-62 w-20 shadow-md p-5 min-h-[140vh] z-50 `}>
       <motion.div
         initial={{ y: -200, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -65,6 +65,7 @@ const SideBar = () => {
           POPEYE’S GYM
         </h3>
       </motion.div>
+
       <motion.ul
         variants={list}
         initial="hidden"
@@ -73,7 +74,10 @@ const SideBar = () => {
         transition={{ delayChildren: 0.6, staggerChildren: 0.3 }}
       >
         {links.map((link, index) => {
-          const isActive = currentPath === link.to;
+        const isActive =
+            link.to === "/"
+              ? currentPath === "/"
+              : currentPath.startsWith(link.to);
           return (
             <motion.li key={index} variants={item}>
               <Link

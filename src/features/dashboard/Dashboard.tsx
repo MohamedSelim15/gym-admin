@@ -5,6 +5,7 @@ import StatsCards from "./components/StatsCard";
 import SalesChart from "./components/SalesChart";
 import BreakdownList from "./components/BreakdownList";
 import ProductsList from "./components/ProductsList";
+import Input from "../components/Input";
 
 const Dashboard = () => {
   const stats = [
@@ -26,18 +27,7 @@ const Dashboard = () => {
   ];
 
   const data = [
-    { month: "jan", year: "2024", flow: 120 },
-    { month: "feb", year: "2024", flow: 150 },
-    { month: "mar", year: "2024", flow: 180 },
-    { month: "apr", year: "2024", flow: 90 },
-    { month: "may", year: "2024", flow: 200 },
-    { month: "jun", year: "2024", flow: 100 },
-    { month: "jul", year: "2024", flow: 150 },
-    { month: "aug", year: "2024", flow: 20 },
-    { month: "sep", year: "2024", flow: 200 },
-    { month: "oct", year: "2024", flow: 50 },
-    { month: "nov", year: "2024", flow: 0 },
-    { month: "dec", year: "2024", flow: 100 },
+
     { month: "jan", year: "2025", flow: 120 },
     { month: "feb", year: "2025", flow: 150 },
     { month: "mar", year: "2025", flow: 180 },
@@ -48,7 +38,7 @@ const Dashboard = () => {
     { month: "aug", year: "2025", flow: 20 },
     { month: "sep", year: "2025", flow: 200 },
     { month: "oct", year: "2025", flow: 50 },
-    { month: "nov", year: "2025", flow: 0 },
+    { month: "nov", year: "2025", flow: 100 },
     { month: "dec", year: "2025", flow: 210 },
   ];
 
@@ -65,12 +55,29 @@ const Dashboard = () => {
 
   return (
     <motion.div
-          initial={{ y: -500, opacity: 0 }}
+      initial={{ y: -500, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 25 }}
-     className="w-full h-full flex flex-col py-8 px-6 xl:px-10" style={{ color: "#213448" }}>
+      className="w-full h-full flex flex-col py-8 px-6 xl:px-10" style={{ color: "#213448" }}>
       <DashboardHeader />
       <div className="mt-2 space-y-3" style={{ color: "#213448" }}>
+
+        <div className="primaryColorText mt-2 space-y-3">
+          <div className="flex flex-col sm:flex-row gap-2 ml-0 sm:ml-4">
+            <div className="bg-white primaryColorText shadow rounded-3xl px-4 py-2 border border-[#94B4C1] w-fit">
+              {/* <i className="fa-regular fa-calendar mr-1"></i>
+              <span>Today</span> */}
+              <Input
+                type="date"
+                placeholder="Today"
+                onChange={(e) => {}}
+                inputClassName="w-full text-[17px] font-[500] primaryColorText border-none"
+              />
+              </div>
+            <div className="bg-white primaryColorText shadow rounded-3xl px-4 py-2 border border-[#94B4C1] w-full sm:w-1/4">
+              Compare to: Oct 2-Nov 6, 2025 </div>
+          </div>
+        </div>
 
         {/* First Row */}
         <StatsCards stats={stats} />

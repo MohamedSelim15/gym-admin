@@ -56,7 +56,7 @@ const SalesChart = ({ data }: SalesChartProps) => {
               stroke="#1e3a8a"
               strokeWidth={2}
               dot={{ fill: "#1e3a8a", strokeWidth: 2, r: 2 }}
-              activeDot={{ r: 6, strokeWidth: 2 }}
+              activeDot={{ r: 5, strokeWidth: 2 }}
             />
           </LineChart>
         </ResponsiveContainer>

@@ -143,7 +143,6 @@ const Customer = () => {
     },
   ]);
 
-  const [showScrollTop, setShowScrollTop] = useState(false);
   const navigate = useNavigate();
 
   function deleteCustomer(index) {
@@ -152,21 +151,6 @@ const Customer = () => {
     setCustomers(newCustomers);
   }
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <motion.div
@@ -211,19 +195,6 @@ const Customer = () => {
         </motion.div>
       </div>
 
-      {/* Scroll-to-top button */}
-      {showScrollTop && (
-        <motion.button
-          onClick={scrollToTop}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 p-3 rounded-[10px] bg-[#213448] text-white  hover:bg-white hover:text-[#213448] hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_rgba(33,52,72,0.5)] cursor-pointer "
-        >
-          <i className="fa-solid fa-arrow-up"></i>
-        </motion.button>
-      )}
     </motion.div>
   );
 };

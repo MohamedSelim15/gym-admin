@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "../components/Input";
+import Button from "../components/Button";
 import { Lock, Unlock } from "lucide-react";
 
 export default function AddTeamWork() {
@@ -90,8 +91,19 @@ export default function AddTeamWork() {
           type="select"
           options={["Coach", "Moderator", "User"]}
           onChange={(val: string) => handleChange("job", val)}
+          placeholder={"Select member job"}
           value={memberData.job}
         />
+
+      <div className="flex justify-end">
+      <Button
+        onClick={() => {}}
+        className="py-[5px] px-[10px] md:text-[18px] text-[12px] md:py-[15px] md:px-[40px] rounded-[20px] hover:bg-[#1f2a38] transition-transform duration-200 ease-in-out hover:border-[#1f2a38] hover:scale-103"
+        type="primary"
+      >
+        Save Member
+      </Button>
+      </div>
       </div>
     </div>
   );

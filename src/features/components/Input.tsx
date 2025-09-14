@@ -63,7 +63,7 @@ export default function Input({
                   ${!value ? "text-[#7f7f7f]" : "text-[#15243F]"}
                 `}
               >
-                {value || "Select category"}
+                {value || `${placeholder || "Select an option"}`}
                 {open ? (
                   <ChevronUp className="w-5 h-5 text-gray-500" />
                 ) : (
