@@ -149,7 +149,6 @@ const Exercises = () => {
     },
   ]);
 
-  const [showScrollTop, setShowScrollTop] = useState(false);
   const navigate = useNavigate();
 
   function deleteExercise(index) {
@@ -158,21 +157,7 @@ const Exercises = () => {
     setExercises(newExercises);
   }
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <motion.div
@@ -189,7 +174,7 @@ const Exercises = () => {
       />
 
       <div className="flex w-[80%] sm:w-full items-center justify-center flex-col border-[1px] border-[#CFD9E9] rounded-[16px] min-h-screen">
-        <div className="sm:grid hidden grid-cols-7 w-full py-[4px] sm:py-[16px]  sm:px-[35px] items-center relative top-2 ">
+        <div className="sm:grid hidden grid-cols-6 w-full py-[4px] sm:py-[16px]  sm:px-[35px] items-center relative top-2 ">
           <p className="text-[12px] text-[#15243F] font-semibold">Video</p>
           <p className="text-[12px] text-[#15243F] font-semibold">Name</p>
           <p className="text-[12px] text-[#15243F] font-semibold">Category</p>
@@ -217,20 +202,6 @@ const Exercises = () => {
           ))}
         </motion.div>
       </div>
-
-      {/* Scroll-to-top button */}
-      {showScrollTop && (
-        <motion.button
-          onClick={scrollToTop}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 p-3 rounded-[10px] bg-[#213448] text-white  hover:bg-white hover:text-[#213448] hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_rgba(33,52,72,0.5)] cursor-pointer "
-        >
-          <i className="fa-solid fa-arrow-up"></i>
-        </motion.button>
-      )}
     </motion.div>
   );
 };
@@ -242,7 +213,7 @@ const ExerciseCard = ({ exercise, deleteExercise }) => {
     <motion.div
       variants={cardVariants}
       className="
-        grid grid-cols-1 sm:grid-cols-7
+        grid grid-cols-1 sm:grid-cols-6
         w-[95%] sm:w-full  
         mx-auto             
         border-t sm:border-t border-[#CFD9E9]

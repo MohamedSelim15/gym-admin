@@ -6,6 +6,7 @@ interface HeaderProps {
   buttonText?: string;
   buttonClassName?: string;
   onButtonClick?: () => void;
+  width?: string;
 }
 
 export default function Header({
@@ -14,6 +15,7 @@ export default function Header({
   buttonText,
   buttonClassName,
   onButtonClick,
+  width="w-[135px]",
 }: HeaderProps) {
   const { pathname } = useLocation();
 
@@ -24,11 +26,7 @@ export default function Header({
         {pageName}
       </div>
 
-      <div
-        className={`relative ${
-          pathname === "/reviews" ? "xl:-mr-203" : "xl:mr-70"
-        } `}
-      >
+      <div className={`relative ${pathname === "/reviews" ? "xl:-mr-203" : "xl:mr-70"} `}>
         <i className="fa-solid fa-magnifying-glass mr-2 absolute left-2 top-2.5"></i>
         <input
           className="border-1 border-[#213448] rounded-2xl pl-10 px-4 py-1"
@@ -40,12 +38,8 @@ export default function Header({
       <div>
         <button
           onClick={onButtonClick}
-          className={`bg-[#C9D36A] h-[50px] ${
-            pathname === "/marketing" ? "w-[90px]" : "w-[135px]"
-          }
-          ${
-            pathname === "/reviews" ? "hidden" : "w-[135px]"
-          } rounded-3xl cursor-pointer `}
+          className={`bg-[#C9D36A] h-[50px]
+          ${width} rounded-3xl cursor-pointer `}
         >
           <span className={`${buttonClassName}`}>{buttonText}</span>
         </button>

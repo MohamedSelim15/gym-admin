@@ -72,6 +72,7 @@ const Reviews = () => {
       <Header
         pageName="Reviews"
         pageLogo="fa-solid fa-comment relative top-0.5  "
+        width="w-[0px]"
       />
 
       <div className="flex sm:flex-row  flex-wrap sm:justify-start justify-center gap-4 mb-6 cursor-pointer">
