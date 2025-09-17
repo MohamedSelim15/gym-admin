@@ -44,6 +44,13 @@ const Reviews = () => {
       review: "Amazing gym! Trainers are super helpful.",
       date: new Date("2024-04-22"),
     },
+    {
+      id: "5",
+      userName: "Mohamed Selim",
+      rating: 5,
+      review: "Amazing gym! Trainers are super helpful.",
+      date: new Date("2024-04-22"),
+    },
   ]);
 
   const [filter, setFilter] = useState("");
@@ -76,15 +83,6 @@ const Reviews = () => {
       />
 
       <div className="flex sm:flex-row  flex-wrap sm:justify-start justify-center gap-4 mb-6 cursor-pointer">
-        {/* <Input
-          label={"Filter by ratting : "}
-          type={"select"}
-          options={["Positive", "Negative", "Neutral"]}
-          onChange={handleFilterChange}
-          value={filter}
-          flex={"row"}
-        /> */}
-
         <h2 className="inputLabel relative top-2">Filter by Ratting : </h2>
         <InputSelect filter={filter} setFilter={setFilter} />
       </div>
