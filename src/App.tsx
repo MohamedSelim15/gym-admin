@@ -17,33 +17,34 @@ import AddTeamWork from "./features/teamwork/AddTeamWork";
 import AddCustomer from "./features/customer/AddCustomer.js";
 import AddMarketing from "./features/marketing/AddMarkting.js";
 import AddNotification from "./features/notification/AddNotification";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-    const [showScrollTop, setShowScrollTop] = useState(false);
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > 200) {
-          setShowScrollTop(true);
-        } else {
-          setShowScrollTop(false);
-        }
-      };
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const scrollToTop = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
     };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const { pathname } = useLocation();
   const hideSidebar = pathname === "/signup";
   return (
     <ModalProvider>
       <div>
-          {/* <Routes>
+        {/* <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes> */}
@@ -71,18 +72,20 @@ function App() {
           </div>
         )}
 
-              {showScrollTop && (
-                <motion.button
-                  onClick={scrollToTop}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 50 }}
-                  transition={{ duration: 0.3 }}
-                  className="fixed bottom-6 right-6 p-3 rounded-[10px] bg-[#213448] text-white  hover:bg-white hover:text-[#213448] hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_rgba(33,52,72,0.5)] cursor-pointer "
-                >
-                  <i className="fa-solid fa-arrow-up"></i>
-                </motion.button>
-              )}
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-6 right-6 p-3 rounded-[10px] bg-[#213448] text-white  hover:bg-white hover:text-[#213448] hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_rgba(33,52,72,0.5)] cursor-pointer "
+          >
+            <i className="fa-solid fa-arrow-up"></i>
+          </motion.button>
+        )}
+
+        <Toaster position="top-right"/>
       </div>
     </ModalProvider>
   );

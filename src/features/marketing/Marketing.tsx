@@ -16,7 +16,7 @@ const Marketing = () => {
       <div className="xl:-ml-0 -ml-7">
         <Header
           pageName="Marketing"
-          pageLogo="fa-solid fa-shop "
+          pageLogo="fa-solid fa-shop"
           buttonClassName="text-6xl relative bottom-3 text-center w-[100px]"
           buttonText="+"
           onButtonClick={() => navigate("/marketing/add")}
@@ -133,10 +133,14 @@ const MarketingCard = () => {
       )
     );
   };
+
   return (
-    <div className="flex w-full justify-center flex-wrap gap-10 -mt-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6 mt-10">
       {marketingData.map((item) => (
-        <div className="relative w-[340px] h-[260px] rounded-xl overflow-hidden shadow-md">
+        <div
+          key={item.id}
+          className="relative w-full mx-auto h-[260px] rounded-xl overflow-hidden shadow-md"
+        >
           <img src={item.src} className="w-full h-full object-cover" />
 
           <div className="absolute bottom-0 left-0 w-full bg-white/90 text-black text-sm px-3 py-5">
@@ -165,9 +169,7 @@ const MarketingCard = () => {
               </div>
               <div className="flex items-center gap-1">
                 <i className={`${item.shareIcon} cursor-pointer`}></i>
-                <span className="relative bottom-[1px] ml-1">
-                  {item.shareWord}
-                </span>
+                <span className="relative bottom-[1px] ml-1">{item.shareWord}</span>
               </div>
             </div>
           </div>

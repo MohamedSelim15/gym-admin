@@ -1,8 +1,12 @@
 import { useState } from "react";
 import Input from "../components/Input.js";
 import Button from "../components/Button.js";
+import { toast } from "react-hot-toast";
+import { FaCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function AddExercise() {
+  const navigate =  useNavigate();
   const [customerData, setCustomerData] = useState({
     name: "",
     phoneNumber: "",
@@ -73,6 +77,18 @@ export default function AddExercise() {
       return;
     }
 
+      toast.success("Customer saved successfully", {
+        icon: <FaCheckCircle size={20} color="white" />,
+        style: {
+          background: "#16a34a",
+          color: "#fff",
+          borderRadius: "8px",
+          padding: "12px",
+        },
+      });
+
+      navigate("/customer")
+
     console.log(customerData);
   }
 
@@ -83,7 +99,8 @@ export default function AddExercise() {
       </h1>
 
       <div className="flex flex-col w-full px-[5px] md:px-[40px] gap-[15px] md:gap-[30px] ">
-        <Input
+        <div>
+          <Input
           label="Customer Name"
           type="text"
           placeholder="Enter customer name"
@@ -92,13 +109,15 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.name ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.name && (
           <span className="text-red-500 text-sm">{errors.name}</span>
         )}
+        </div>
 
-        <Input
+        <div>
+          <Input
           label="Phone Number"
           type="text"
           placeholder="Enter phone number"
@@ -110,13 +129,15 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.phoneNumber ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.phoneNumber && (
           <span className="text-red-500 text-sm">{errors.phoneNumber}</span>
         )}
+        </div>
 
-        <Input
+        <div>
+          <Input
           label="Customer Age"
           type="text"
           placeholder="Enter customer age"
@@ -128,13 +149,15 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.age ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.age && (
           <span className="text-red-500 text-sm">{errors.age}</span>
         )}
+        </div>
 
-        <Input
+      <div>
+          <Input
           label="Weight"
           type="text"
           placeholder="Enter weight"
@@ -143,11 +166,12 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.weight ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.weight && (
           <span className="text-red-500 text-sm">{errors.weight}</span>
         )}
+      </div>
 
         <Input
           label="Subscription Type"
@@ -157,10 +181,11 @@ export default function AddExercise() {
           onChange={(val) => handleChange("subscriptionType", val)}
           value={customerData.subscriptionType}
           inputClassName="border border-[#94B4C1] rounded-[10px]"
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
 
-        <Input
+        <div>
+          <Input
           label="Expiry Date"
           type="date"
           placeholder="Select expiry date"
@@ -169,11 +194,12 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.expiryDate ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px] bg-white px-[10px] py-[8px] md:px-[20px] md:py-[12px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.expiryDate && (
           <span className="text-red-500 text-sm">{errors.expiryDate}</span>
         )}
+        </div>
 
         <div className="flex justify-end">
           <Button

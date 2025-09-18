@@ -70,7 +70,7 @@ export default function AddExercise() {
           onChange={(e) => handleChange("name", e.target.value)}
           value={exerciseData.name}
           inputClassName="border border-[#94B4C1] rounded-[10px] md:text-[18px] text-[14px] py-[7px] md:py-[17px] px-[11px] md:px-[23px] font-medium"
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
 
         <Input
@@ -80,7 +80,7 @@ export default function AddExercise() {
           withAdd
           onChange={(val) => handleChange("category", val)}
           value={exerciseData.category}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
           listClassName="w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[10px] px-[15px] md:py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium"
         />
 
@@ -91,7 +91,7 @@ export default function AddExercise() {
           onChange={(e) => handleChange("targetMuscles", e.target.value)}
           value={exerciseData.targetMuscles}
           inputClassName="border border-[#94B4C1] rounded-[10px] md:text-[18px] text-[14px] py-[7px] md:py-[17px] px-[11px] md:px-[23px] font-medium"
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
 
         <Input
@@ -101,7 +101,7 @@ export default function AddExercise() {
           onChange={(val) => handleChange("difficulty", val)}
           value={exerciseData.difficulty}
           listClassName="w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[10px] px-[15px] md:py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium"
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
 
         <div className="flex flex-col">
@@ -112,7 +112,7 @@ export default function AddExercise() {
             label="Upload Image / Video"
             uploadImg={uploadImg}
             iconClassName="md:h-6 md:w-6 w-5 h-5"
-            lableClassName="primaryColorText text-[16px] md:text-[18px] font-[500px]"
+            labelClassName="primaryColorText text-[16px] md:text-[18px] font-[500px]"
           />
           {image && (
             <img src={image} alt="Uploaded" className="h-48 w-48 mt-4" />

@@ -47,13 +47,13 @@ const SideBar = () => {
   return (
 
     <>
-      <button 
+      <button
       onClick={toggleSidebar}
       className="xl:hidden primaryColor text-white p-3 rounded-md fixed top-4 left-4 z-51">
         <i className={`fa-solid ${isSidebarOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
-        <aside 
-        className={` primaryColor  ${isSidebarOpen ? "block" : "hidden"} xl:flex flex-col fixed xl:w-62 w-20 shadow-md p-5 min-h-[140vh] z-50 `}>
+        <aside
+        className={` primaryColor  ${isSidebarOpen ? "block" : "hidden"} xl:flex flex-col fixed xl:w-62 w-20 shadow-md p-5 min-h-[150vh] z-50 `}>
       <motion.div
         initial={{ y: -200, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

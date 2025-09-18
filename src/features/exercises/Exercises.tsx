@@ -164,11 +164,11 @@ const Exercises = () => {
       initial={{ y: -500, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 25 }}
-      className="w-full min-h-screen flex flex-col py-[10px] md:py-[30px] px-[15px] md:px-[40px] relative"
+      className="w-full min-h-screen flex flex-col py-[10px] md:py-[30px] px-[15px] md:px-[40px] relative xl:items-stretch items-center"
     >
       <Header
         pageName="Exercises"
-        pageLogo="fa-solid fa-dumbbell rotate-135"
+        pageLogo="fa-solid fa-dumbbell rotate-135 "
         buttonText="Add Exercise"
         onButtonClick={() => navigate("/exercise/add")}
       />
@@ -214,13 +214,12 @@ const ExerciseCard = ({ exercise, deleteExercise }) => {
       variants={cardVariants}
       className="
         grid grid-cols-1 sm:grid-cols-6
-        w-[95%] sm:w-full  
-        mx-auto             
+        w-[95%] sm:w-full mx-auto
         border-t sm:border-t border-[#CFD9E9]
         py-[4px] sm:py-[16px] px-[6px] sm:px-[35px] items-center
         hover:bg-[#F9FAFB] transition-colors
         sm:rounded-none sm:shadow-none
-        rounded-lg shadow-sm bg-white mb-2 sm:mb-0
+        rounded-lg shadow-sm bg-white mb-2 sm:mb-0\
       "
     >
       <div className="flex justify-center sm:justify-start">

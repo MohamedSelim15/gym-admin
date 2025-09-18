@@ -17,35 +17,35 @@ const listVariants = {
 const Reviews = () => {
   const [reviews, setReviews] = useState([
     {
-      id: "1",
+      id: 1,
       userName: "Mohamed Selim",
       rating: 1,
       review: "Amazing gym! Trainers are super helpful.",
       date: new Date("2024-04-22"),
     },
     {
-      id: "2",
+      id: 2,
       userName: "Mohamed Selim",
       rating: 2,
       review: "Amazing gym! Trainers are super helpful.",
       date: new Date("2024-04-22"),
     },
     {
-      id: "3",
+      id: 3,
       userName: "Mohamed Selim",
       rating: 3,
       review: "Amazing gym! Trainers are super helpful.",
       date: new Date("2024-04-22"),
     },
     {
-      id: "4",
+      id: 4,
       userName: "Mohamed Selim",
       rating: 4,
       review: "Amazing gym! Trainers are super helpful.",
       date: new Date("2024-04-22"),
     },
     {
-      id: "5",
+      id: 5,
       userName: "Mohamed Selim",
       rating: 5,
       review: "Amazing gym! Trainers are super helpful.",
@@ -82,7 +82,7 @@ const Reviews = () => {
         width="w-[0px]"
       />
 
-      <div className="flex sm:flex-row  flex-wrap sm:justify-start justify-center gap-4 mb-6 cursor-pointer">
+      <div className="flex sm:flex-row  flex-wrap sm:justify-start justify-center gap-4 xl:-mt-0 -mt-25  mb-6  cursor-pointer">
         <h2 className="inputLabel relative top-2">Filter by Ratting : </h2>
         <InputSelect filter={filter} setFilter={setFilter} />
       </div>
@@ -104,7 +104,7 @@ const Reviews = () => {
           animate="visible"
         >
           {filterReviews.map((review, index) => (
-            <ReviewsCard // The 'id' property is missing in the object literal for 'review'
+            <ReviewsCard
               key={index}
               review={review}
               deleteReview={() => deleteReview(index)}

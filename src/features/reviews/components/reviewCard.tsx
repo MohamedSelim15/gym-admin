@@ -60,7 +60,6 @@ export const ReviewsCard = ({
         {[1, 2, 3, 4, 5].map((star, i) => (
           <i
             key={i}
-            // onClick={() => handleStarClick(star)} // This is commented out, so it's not an issue
             className={`fa-star ${
               star <= review.rating ? "fa-solid" : "fa-regular"
             } cursor-pointer text-yellow-500 mr-1`}
