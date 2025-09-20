@@ -95,16 +95,9 @@ export default function AddTeamWork() {
             placeholder="Enter member name"
             onChange={(e) => handleChange("name", e.target.value)}
             value={memberData.name}
-            labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+            labelClassName="mb-2 text-[16px] md:text-[22px] font-[500px] text-[#547792]"
             inputClassName={`border ${
-            errors.name ? "border-red-500" : "border-[#94B4C1]"
-          }  transition-all duration-300 ease-in-out
-            outline-none
-            border border-[#94B4C1] rounded-[10px]
-            py-[17px] px-[23px]
-            text-[18px] font-medium
-            hover:scale-102
-            focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]`}
+            errors.name ? "border-red-500" : ""}`}
           />
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
         </div>
@@ -116,16 +109,9 @@ export default function AddTeamWork() {
             placeholder="Enter member email"
             onChange={(e) => handleChange("email", e.target.value)}
             value={memberData.email}
-            labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
-             inputClassName={`border ${
-            errors.email ? "border-red-500" : "border-[#94B4C1]"
-          }  transition-all duration-300 ease-in-out
-            outline-none
-            border border-[#94B4C1] rounded-[10px]
-            py-[17px] px-[23px]
-            text-[18px] font-medium
-            hover:scale-102
-            focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]`}
+            labelClassName="mb-2 text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+            inputClassName={`border ${
+            errors.email ? "border-red-500" : ""}`}
           />
           {errors.email && (
             <p className="text-red-500 text-sm">{errors.email}</p>
@@ -139,16 +125,9 @@ export default function AddTeamWork() {
             placeholder="Enter member username"
             onChange={(e) => handleChange("username", e.target.value)}
             value={memberData.username}
-            labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+            labelClassName="mb-2 text-[16px] md:text-[22px] font-[500px] text-[#547792]"
             inputClassName={`border ${
-            errors.username ? "border-red-500" : "border-[#94B4C1]"
-          } transition-all duration-300 ease-in-out
-            outline-none
-            border border-[#94B4C1] rounded-[10px]
-            py-[17px] px-[23px]
-            text-[18px] font-medium
-            hover:scale-102
-            focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]`}
+            errors.username ? "border-red-500" : ""}`}
 
           />
           {errors.username && (
@@ -163,18 +142,9 @@ export default function AddTeamWork() {
             placeholder="Enter member password"
             onChange={(e) => handleChange("password", e.target.value)}
             value={memberData.password}
-            labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+            labelClassName="mb-2 text-[16px] md:text-[22px] font-[500px] text-[#547792]"
              inputClassName={`border ${
-            errors.password ? "border-red-500" : "border-[#94B4C1]"
-          } 
-            transition-all duration-300 ease-in-out
-            outline-none
-            border border-[#94B4C1] rounded-[10px]
-            py-[17px] px-[23px]
-            text-[18px] font-medium
-            hover:scale-102
-            focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
-          `}
+            errors.password ? "border-red-500" : ""} `}
           />
           <button
             type="button"
@@ -184,9 +154,9 @@ export default function AddTeamWork() {
             className="absolute right-3 top-[55px] text-gray-600 cursor-pointer"
           >
             {type === "password" ? (
-              <Lock className="w-5 h-5 md:mt-0 -mt-2" />
+              <Lock className="w-5 h-5 xl:mt-2" />
             ) : (
-              <Unlock className="w-5 h-5 md:mt-0 -mt-2" />
+              <Unlock className="w-5 h-5 xl:mt-2" />
             )}
           </button>
           {errors.password && (
@@ -202,7 +172,7 @@ export default function AddTeamWork() {
             onChange={(val: string) => handleChange("job", val)}
             placeholder="Select member job"
             value={memberData.job}
-            labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+            labelClassName="mb-2 text-[16px] md:text-[22px] font-[500px] text-[#547792]"
             listClassName={`border ${
             errors.job ? "border-red-500" : "border-[#94B4C1]"
           } w-full flex justify-between items-center rounded-[10px]

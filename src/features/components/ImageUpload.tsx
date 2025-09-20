@@ -6,7 +6,7 @@ const ImageUpload = ({
   className,
   uploadImg,
   iconClassName,
-  lableClassName,
+  labelClassName,
 }) => {
   const fileUploadRef = useRef();
 
@@ -31,7 +31,7 @@ const ImageUpload = ({
       <div className={` ${iconClassName}`}>
         <img src={uploadImg} alt="Upload" />
       </div>
-      <p className={`${lableClassName}`}>{label}</p>
+      <p className={`${labelClassName}`}>{label}</p>
 
       <input
         type="file"

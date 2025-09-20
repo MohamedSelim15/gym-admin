@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState } from "react";
 import { K } from "../../constant";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
@@ -151,7 +151,7 @@ const Exercises = () => {
 
   const navigate = useNavigate();
 
-  function deleteExercise(index) {
+  function deleteExercise(index :number) {
     const newExercises = [...exercises];
     newExercises.splice(index, 1);
     setExercises(newExercises);

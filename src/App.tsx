@@ -1,5 +1,5 @@
-import Login from "./features/auth/Login.js";
-import SignUp from "./features/auth/SignUp.js";
+// import Login from "./features/auth/Login.js";
+// import SignUp from "./features/auth/SignUp.js";
 
 import SideBar from "./features/components/SideBar";
 import { Routes, Route, useLocation } from "react-router-dom";

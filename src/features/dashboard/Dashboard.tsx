@@ -48,9 +48,9 @@ const dataRevenue = [
 ];
 
   const SubscriptionData = [
-  { name: "Gym subscription + workout videos accessible anytime.", value: 450, color: "#213448" },
-  { name: "Gym subscription + personalized follow-up with a nutritionist.", value: 150, color: "#94B4C1" },
-  { name: "Gym-only subscription.", value: 400, color: "#547792" },
+    { name: "Gym-only subscription.", value: 400, color: "#547792" },
+    { name: "Gym subscription + personalized follow-up with a nutritionist.", value: 150, color: "#94B4C1" },
+    { name: "Gym subscription + workout videos accessible anytime.", value: 450, color: "#213448" },
 ];
 
 

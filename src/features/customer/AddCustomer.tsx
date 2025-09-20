@@ -61,6 +61,7 @@ export default function AddExercise() {
       newErrors.phoneNumber = "Phone number is required";
     if (!customerData.age.trim()) newErrors.age = "Age is required";
     if (!customerData.weight.trim()) newErrors.weight = "Weight is required";
+    if (!customerData.weight.trim()) newErrors.weight = "Weight is required";
 
     if (customerData.expiryDate) {
       const today = new Date();

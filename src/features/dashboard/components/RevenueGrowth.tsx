@@ -37,11 +37,11 @@ const RevenueGrowth = ({ data }: RevenueGrowthProps) => {
         <span className="text-[#547792] flex cursor-pointer"
         onClick={handleOpen}
         >Yearly
-           {open ? (
-                  <ChevronUp className="w-4 h-4 ml-1 mt-1.5 text-gray-500" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 ml-1 mt-1.5 text-gray-500" />
-            )}
+        {open ? (
+              <ChevronUp className="w-4 h-4 ml-1 mt-1.5 text-gray-500" />
+            ) : (
+              <ChevronDown className="w-4 h-4 ml-1 mt-1.5 text-gray-500" />
+        )}
         </span>
       </div>
 
@@ -53,8 +53,8 @@ const RevenueGrowth = ({ data }: RevenueGrowthProps) => {
           >
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#6b7280" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#6b7280" stopOpacity={0} />
+                <stop offset="5%" stopColor="#6b7280" stopOpacity={0.9} />
+                <stop offset="95%" stopColor="#6b7280" stopOpacity={0.02} />
               </linearGradient>
             </defs>
 

@@ -80,6 +80,7 @@ const Reviews = () => {
         pageName="Reviews"
         pageLogo="fa-solid fa-comment relative top-0.5  "
         width="w-[0px]"
+        
       />
 
       <div className="flex sm:flex-row  flex-wrap sm:justify-start justify-center gap-4 xl:-mt-0 -mt-25  mb-6  cursor-pointer">
