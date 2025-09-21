@@ -21,6 +21,7 @@ export default function AddExercise() {
     phoneNumber?: string;
     age?: string;
     weight?: string;
+    subscriptionType?: string;
     expiryDate?: string;
   }>({});
 
@@ -30,10 +31,7 @@ export default function AddExercise() {
       [field]: value,
     }));
 
-    if (value.trim() !== "") {
-      setErrors((prev) => ({ ...prev, [field]: undefined }));
-    }
-
+    
     if (field === "expiryDate" && value) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -51,17 +49,23 @@ export default function AddExercise() {
         }));
       }
     }
+
+  if (value !== "" && value !== null && value !== undefined) {
+  setErrors((prev) => ({ ...prev, [field]: undefined }));
+}
+
   }
 
   function handleSubmit() {
     let newErrors: typeof errors = {};
 
-    if (!customerData.name.trim()) newErrors.name = "Customer name is required";
+    if (!customerData.name) newErrors.name = "Customer name is required";
     if (!customerData.phoneNumber.trim())
       newErrors.phoneNumber = "Phone number is required";
     if (!customerData.age.trim()) newErrors.age = "Age is required";
     if (!customerData.weight.trim()) newErrors.weight = "Weight is required";
-    if (!customerData.weight.trim()) newErrors.weight = "Weight is required";
+    if (!customerData.subscriptionType) newErrors.subscriptionType = "Subscription Type is required";
+    if (!customerData.expiryDate.trim()) newErrors.expiryDate = "Expiry Date is required";
 
     if (customerData.expiryDate) {
       const today = new Date();
@@ -174,6 +178,7 @@ export default function AddExercise() {
         )}
       </div>
 
+      <div>
         <Input
           label="Subscription Type"
           type="select"
@@ -181,9 +186,14 @@ export default function AddExercise() {
           options={[1, 2, 3]}
           onChange={(val) => handleChange("subscriptionType", val)}
           value={customerData.subscriptionType}
-          inputClassName="border border-[#94B4C1] rounded-[10px]"
+          listClassName={`border ${errors.subscriptionType? " border-red-500 ":" border-[#94B4C1] "}
+              w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium `}
           labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
+          {errors.subscriptionType && (
+            <span className="text-red-500 text-sm">{errors.subscriptionType}</span>
+          )}
+      </div>
 
         <div>
           <Input
@@ -194,7 +204,9 @@ export default function AddExercise() {
           value={customerData.expiryDate}
           inputClassName={`border ${
             errors.expiryDate ? "border-red-500" : "border-[#94B4C1]"
-          } rounded-[10px] bg-white px-[10px] py-[8px] md:px-[20px] md:py-[12px]`}
+          } rounded-[10px] bg-white px-[10px] py-[8px] md:px-[20px] md:py-[20px]
+            font-medium text-[18px]
+          `}
           labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.expiryDate && (
@@ -205,7 +217,7 @@ export default function AddExercise() {
         <div className="flex justify-end">
           <Button
             onClick={handleSubmit}
-            className="py-[5px] px-[10px] md:text-[18px] text-[12px] md:py-[15px] md:px-[40px] rounded-[20px] hover:bg-[#1f2a38] transition-transform duration-200 ease-in-out hover:border-[#1f2a38] hover:scale-103"
+            className="cursor-pointer py-[5px] px-[10px] md:text-[18px] text-[12px] md:py-[15px] md:px-[40px] rounded-[20px] hover:bg-[#1f2a38] transition-transform duration-200 ease-in-out hover:border-[#1f2a38] hover:scale-103"
             type="primary"
           >
             Save Customer
