@@ -1,5 +1,5 @@
-import Login from "./features/auth/Login.js";
-import SignUp from "./features/auth/SignUp.js";
+// import Login from "./features/auth/Login.js";
+// import SignUp from "./features/auth/SignUp.js";
 
 import SideBar from "./features/components/SideBar";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -20,6 +20,7 @@ import AddNotification from "./features/notification/AddNotification";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import MarketingDetail from "./features/marketing/MarketingDetail.js";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -86,6 +87,8 @@ function App() {
             <i className="fa-solid fa-arrow-up"></i>
           </motion.button>
         )}
+
+        <Toaster position="top-right" />
       </div>
     </ModalProvider>
   );

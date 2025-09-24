@@ -17,7 +17,7 @@ const Marketing = () => {
       <div className="xl:-ml-0 -ml-7">
         <Header
           pageName="Marketing"
-          pageLogo="fa-solid fa-shop "
+          pageLogo="fa-solid fa-shop"
           buttonClassName="text-6xl relative bottom-3 text-center w-[100px]"
           buttonText="+"
           onButtonClick={() => navigate("/marketing/add")}
@@ -62,14 +62,30 @@ const MarketingCard = () => {
     },
   ]);
 
+  const toggleLike = (id: number) => {
+    setMarketingData((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              liked: !item.liked,
+              likesNumber: item.liked
+                ? item.likesNumber - 1
+                : item.likesNumber + 1,
+            }
+          : item
+      )
+    );
+  };
+
   return (
-    <div className="flex w-full justify-center flex-wrap gap-10 -mt-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6 mt-10">
       {marketingData.map((item) => (
         <div
           key={item.id}
           role="button"
-          onClick={() => navigate(`/marketing/${item.id}`)} // ✅ everything routes here
-          className="relative w-[340px] h-[260px] rounded-xl overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-200"
+          onClick={() => navigate(`/marketing/${item.id}`)}
+          className="relative w-full h-[260px] rounded-xl overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-200"
         >
           <img src={item.src} className="w-full h-full object-cover" />
 
@@ -89,8 +105,10 @@ const MarketingCard = () => {
                 <span className="ml-1">{item.commentsNumber}</span>
               </div>
               <div className="flex items-center gap-1">
-                <i className="fa-solid fa-share"></i>
-                <span className="ml-1">{item.shareWord}</span>
+                <i className={`${item.shareIcon} cursor-pointer`}></i>
+                <span className="relative bottom-[1px] ml-1">
+                  {item.shareWord}
+                </span>
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ interface StatsProps {
 
 const StatsCards = ({ stats }: StatsProps) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-0 sm:px-4 py-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-0 sm:px-4 py-2">
       {stats.map((item) => (
         <div
           key={item.id}

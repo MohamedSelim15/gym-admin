@@ -26,7 +26,7 @@ export default function Header({
         {pageName}
       </div>
 
-      <div className={`relative ${pathname === "/reviews" ? "xl:-mr-203" : "xl:mr-70"} `}>
+      <div className={`relative ${pathname === "/reviews" ? "xl:-mr-180" : "xl:mr-70"} `}>
         <i className="fa-solid fa-magnifying-glass mr-2 absolute left-2 top-2.5"></i>
         <input
           className="border-1 border-[#213448] rounded-2xl pl-10 px-4 py-1"

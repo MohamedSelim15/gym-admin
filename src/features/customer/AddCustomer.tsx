@@ -1,8 +1,12 @@
 import { useState } from "react";
 import Input from "../components/Input.js";
 import Button from "../components/Button.js";
+import { toast } from "react-hot-toast";
+import { FaCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function AddExercise() {
+  const navigate =  useNavigate();
   const [customerData, setCustomerData] = useState({
     name: "",
     phoneNumber: "",
@@ -17,6 +21,7 @@ export default function AddExercise() {
     phoneNumber?: string;
     age?: string;
     weight?: string;
+    subscriptionType?: string;
     expiryDate?: string;
   }>({});
 
@@ -26,10 +31,7 @@ export default function AddExercise() {
       [field]: value,
     }));
 
-    if (value.trim() !== "") {
-      setErrors((prev) => ({ ...prev, [field]: undefined }));
-    }
-
+    
     if (field === "expiryDate" && value) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -47,16 +49,23 @@ export default function AddExercise() {
         }));
       }
     }
+
+  if (value !== "" && value !== null && value !== undefined) {
+  setErrors((prev) => ({ ...prev, [field]: undefined }));
+}
+
   }
 
   function handleSubmit() {
     let newErrors: typeof errors = {};
 
-    if (!customerData.name.trim()) newErrors.name = "Customer name is required";
+    if (!customerData.name) newErrors.name = "Customer name is required";
     if (!customerData.phoneNumber.trim())
       newErrors.phoneNumber = "Phone number is required";
     if (!customerData.age.trim()) newErrors.age = "Age is required";
     if (!customerData.weight.trim()) newErrors.weight = "Weight is required";
+    if (!customerData.subscriptionType) newErrors.subscriptionType = "Subscription Type is required";
+    if (!customerData.expiryDate.trim()) newErrors.expiryDate = "Expiry Date is required";
 
     if (customerData.expiryDate) {
       const today = new Date();
@@ -73,6 +82,18 @@ export default function AddExercise() {
       return;
     }
 
+      toast.success("Customer saved successfully", {
+        icon: <FaCheckCircle size={20} color="white" />,
+        style: {
+          background: "#16a34a",
+          color: "#fff",
+          borderRadius: "8px",
+          padding: "12px",
+        },
+      });
+
+      navigate("/customer")
+
     console.log(customerData);
   }
 
@@ -83,7 +104,8 @@ export default function AddExercise() {
       </h1>
 
       <div className="flex flex-col w-full px-[5px] md:px-[40px] gap-[15px] md:gap-[30px] ">
-        <Input
+        <div>
+          <Input
           label="Customer Name"
           type="text"
           placeholder="Enter customer name"
@@ -92,13 +114,15 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.name ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.name && (
           <span className="text-red-500 text-sm">{errors.name}</span>
         )}
+        </div>
 
-        <Input
+        <div>
+          <Input
           label="Phone Number"
           type="text"
           placeholder="Enter phone number"
@@ -110,13 +134,15 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.phoneNumber ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.phoneNumber && (
           <span className="text-red-500 text-sm">{errors.phoneNumber}</span>
         )}
+        </div>
 
-        <Input
+        <div>
+          <Input
           label="Customer Age"
           type="text"
           placeholder="Enter customer age"
@@ -128,13 +154,15 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.age ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.age && (
           <span className="text-red-500 text-sm">{errors.age}</span>
         )}
+        </div>
 
-        <Input
+      <div>
+          <Input
           label="Weight"
           type="text"
           placeholder="Enter weight"
@@ -143,12 +171,14 @@ export default function AddExercise() {
           inputClassName={`border ${
             errors.weight ? "border-red-500" : "border-[#94B4C1]"
           } rounded-[10px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.weight && (
           <span className="text-red-500 text-sm">{errors.weight}</span>
         )}
+      </div>
 
+      <div>
         <Input
           label="Subscription Type"
           type="select"
@@ -156,11 +186,17 @@ export default function AddExercise() {
           options={[1, 2, 3]}
           onChange={(val) => handleChange("subscriptionType", val)}
           value={customerData.subscriptionType}
-          inputClassName="border border-[#94B4C1] rounded-[10px]"
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          listClassName={`border ${errors.subscriptionType? " border-red-500 ":" border-[#94B4C1] "}
+              w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium `}
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
+          {errors.subscriptionType && (
+            <span className="text-red-500 text-sm">{errors.subscriptionType}</span>
+          )}
+      </div>
 
-        <Input
+        <div>
+          <Input
           label="Expiry Date"
           type="date"
           placeholder="Select expiry date"
@@ -168,17 +204,20 @@ export default function AddExercise() {
           value={customerData.expiryDate}
           inputClassName={`border ${
             errors.expiryDate ? "border-red-500" : "border-[#94B4C1]"
-          } rounded-[10px] bg-white px-[10px] py-[8px] md:px-[20px] md:py-[12px]`}
-          lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
+          } rounded-[10px] bg-white px-[10px] py-[8px] md:px-[20px] md:py-[20px]
+            font-medium text-[18px]
+          `}
+          labelClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
         />
         {errors.expiryDate && (
           <span className="text-red-500 text-sm">{errors.expiryDate}</span>
         )}
+        </div>
 
         <div className="flex justify-end">
           <Button
             onClick={handleSubmit}
-            className="py-[5px] px-[10px] md:text-[18px] text-[12px] md:py-[15px] md:px-[40px] rounded-[20px] hover:bg-[#1f2a38] transition-transform duration-200 ease-in-out hover:border-[#1f2a38] hover:scale-103"
+            className="cursor-pointer py-[5px] px-[10px] md:text-[18px] text-[12px] md:py-[15px] md:px-[40px] rounded-[20px] hover:bg-[#1f2a38] transition-transform duration-200 ease-in-out hover:border-[#1f2a38] hover:scale-103"
             type="primary"
           >
             Save Customer

@@ -30,6 +30,15 @@ const Customer = () => {
       expiryDate: "2025-10-10",
     },
     {
+      name: "Mohamed Selim",
+      phone: "01012345678",
+      age: 22,
+      weight: "10kg",
+      subscriptionType: "Century",
+      expiryDate: "2225-10-10",
+    },
+
+    {
       name: "Omar Khaled",
       phone: "01098765432",
       age: 29,
@@ -157,7 +166,7 @@ const Customer = () => {
       initial={{ y: -500, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 25 }}
-      className="w-full min-h-screen flex flex-col py-[10px] md:py-[30px] px-[15px] md:px-[40px] relative"
+      className="w-full min-h-screen flex flex-col py-[10px] md:py-[30px] px-[15px] xl:items-stretch items-center  md:px-[40px] relative"
     >
       <Header
         pageName="Customers"

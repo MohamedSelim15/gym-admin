@@ -2,56 +2,58 @@ import { motion } from "framer-motion";
 
 import DashboardHeader from "./components/DashboardHeader";
 import StatsCards from "./components/StatsCard";
-import SalesChart from "./components/SalesChart";
-import BreakdownList from "./components/BreakdownList";
-import ProductsList from "./components/ProductsList";
-import Input from "../components/Input";
+import MemberGrowth from "./components/MemberGrowth";
+import RevenueGrowth from "./components/RevenueGrowth";
+import DailyAttendance from "./components/DailyAttendance";
+import SubscriptionPieChart from "./components/SubscriptionPieChart";
+import Date from "./components/Date";
 
 const Dashboard = () => {
   const stats = [
-    { id: 1, label: "Gross sales", value: "EGP 16,549" },
-    { id: 2, label: "Returning customer rate", value: "64%" },
-    { id: 3, label: "Order fulfilled", value: "70" },
-    { id: 4, label: "Order", value: "1250" },
+    { id: 1, label: "Total Members", value: "270" },
+    { id: 2, label: "Activity Today", value: "128" },
+    { id: 3, label: "New Registrations", value: "12" },
   ];
 
-  const breakdown = [
-    { label: "Gross sales", value: "EGP 300" },
-    { label: "Discounts", value: "EGP 300" },
-    { label: "Returns", value: "EGP 300" },
-    { label: "Net Sales", value: "EGP 300" },
-    { label: "Shipping charges", value: "EGP 300" },
-    { label: "Return fees", value: "EGP 300" },
-    { label: "Taxes", value: "EGP 300" },
-    { label: "Total sales", value: "EGP 300" },
+const dataRevenue = [
+  { year: "2016", value: 5000 },
+  { year: "2017", value: 10000 },
+  { year: "2018", value: 35000 },
+  { year: "2019", value: 55000 },
+  { year: "2020", value: 8000 },
+  { year: "2021", value: 15000 },
+  { year: "2022", value: 50000 },
+  { year: "2023", value: 100000 },
+];
+
+  const dataMembers = [
+
+    { month: "jan", flow: 120 },
+    { month: "feb", flow: 150 },
+    { month: "mar", flow: 180 },
+    { month: "apr", flow: 170 },
+    { month: "may", flow: 200 },
+    { month: "jun", flow: 250 },
+
   ];
 
-  const data = [
+  const AttendanceData = [
+  { day: "Mon", attendance: 95 },
+  { day: "Tue", attendance: 120 },
+  { day: "Wed", attendance: 135 },
+  { day: "Thu", attendance: 125 },
+  { day: "Fri", attendance: 90 },
+  { day: "Sat", attendance: 40 },
+  { day: "Sun", attendance: 70 },
+];
 
-    { month: "jan", year: "2025", flow: 120 },
-    { month: "feb", year: "2025", flow: 150 },
-    { month: "mar", year: "2025", flow: 180 },
-    { month: "apr", year: "2025", flow: 90 },
-    { month: "may", year: "2025", flow: 200 },
-    { month: "jun", year: "2025", flow: 100 },
-    { month: "jul", year: "2025", flow: 150 },
-    { month: "aug", year: "2025", flow: 20 },
-    { month: "sep", year: "2025", flow: 200 },
-    { month: "oct", year: "2025", flow: 50 },
-    { month: "nov", year: "2025", flow: 100 },
-    { month: "dec", year: "2025", flow: 210 },
-  ];
+  const SubscriptionData = [
+    { name: "Gym-only subscription.", value: 400, color: "#547792" },
+    { name: "Gym subscription + personalized follow-up with a nutritionist.", value: 150, color: "#94B4C1" },
+    { name: "Gym subscription + workout videos accessible anytime.", value: 450, color: "#213448" },
+];
 
-  const products = [
-    { label: "Product 1", value: "EGP 300" },
-    { label: "Product 2", value: "EGP 300" },
-    { label: "Product 3", value: "EGP 300" },
-    { label: "Product 4", value: "EGP 300" },
-    { label: "Product 5", value: "EGP 300" },
-    { label: "Product 6", value: "EGP 300" },
-    { label: "Product 7", value: "EGP 300" },
-    { label: "Product 8", value: "EGP 300" },
-  ];
+
 
   return (
     <motion.div
@@ -63,20 +65,7 @@ const Dashboard = () => {
       <div className="mt-2 space-y-3" style={{ color: "#213448" }}>
 
         <div className="primaryColorText mt-2 space-y-3">
-          <div className="flex flex-col sm:flex-row gap-2 ml-0 sm:ml-4">
-            <div className="bg-white primaryColorText shadow rounded-3xl px-4 py-2 border border-[#94B4C1] w-fit">
-              {/* <i className="fa-regular fa-calendar mr-1"></i>
-              <span>Today</span> */}
-              <Input
-                type="date"
-                placeholder="Today"
-                onChange={(e) => {}}
-                inputClassName="w-full text-[17px] font-[500] primaryColorText border-none"
-              />
-              </div>
-            <div className="bg-white primaryColorText shadow rounded-3xl px-4 py-2 border border-[#94B4C1] w-full sm:w-1/4">
-              Compare to: Oct 2-Nov 6, 2025 </div>
-          </div>
+            <Date/>
         </div>
 
         {/* First Row */}
@@ -84,25 +73,16 @@ const Dashboard = () => {
 
 
         {/* Second Row */}
-        <div className="flex flex-col xl:px-4 sm:flex-row gap-4 col-span-1 sm:col-span-2 lg:col-span-4">
-          <SalesChart data={data} />
-          <BreakdownList breakdown={breakdown} />
+        <div className=" grid xl:grid-cols-2  grid-cols-1 xl:px-4 sm:flex-row gap-4 ">
+          <RevenueGrowth data={dataRevenue} />
+          <SubscriptionPieChart data = {SubscriptionData} />
         </div>
 
         {/* Third Row */}
-        <div className="grid grid-cols-1 xl:px-4 sm:grid-cols-2 lg:grid-cols-3 gap-4 col-span-1 sm:col-span-2 lg:col-span-4">
+        <div className="grid grid-cols-1 xl:px-4 sm:grid-cols-2 lg:grid-cols-2 gap-4 col-span-1 sm:col-span-2 lg:col-span-4">
 
-          <div className="bg-white flex flex-col shadow rounded-xl p-4 border border-[#94B4C1]">
-            <span className="border-b-[1px] w-fit mb-3 border-dashed">
-              Average order value over time
-            </span>
-          </div>
-
-          <ProductsList products={products} />
-
-          <div className="bg-white flex flex-col shadow rounded-xl p-4 border border-[#94B4C1]">
-            <span className="border-b-[1px] w-fit mb-3 border-dashed"></span>
-          </div>
+          <MemberGrowth data={dataMembers} />
+          <DailyAttendance data={AttendanceData} />
 
         </div>
       </div>

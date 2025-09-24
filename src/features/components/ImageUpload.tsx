@@ -7,7 +7,7 @@ const ImageUpload = ({
   className,
   uploadImg,
   iconClassName,
-  lableClassName,
+  labelClassName,
 }) => {
   const fileUploadRef = useRef();
   const [preview, setPreview] = useState(null);

@@ -2,6 +2,20 @@ import { Listbox } from "@headlessui/react";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
+interface InputProps {
+  label: string;
+  type: "text" | "email" | "password" | "select" | "date";
+  placeholder?: string;
+  value: string;
+  onChange: (value: any) => void;
+  options?: string[];
+  withAdd?: boolean;
+  inputClassName?: string;
+  labelClassName?: string;
+  listClassName?: string;
+  flex?: "row" | "col";
+}
+
 export default function Input({
   label,
   type,
@@ -11,10 +25,10 @@ export default function Input({
   options,
   withAdd,
   inputClassName,
-  lableClassName,
+  labelClassName,
   listClassName,
   flex = "col",
-}) {
+}: InputProps) {
   const pathname = useLocation();
   const defaultListClassName =
     "w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium ";
@@ -22,7 +36,7 @@ export default function Input({
     "border border-[#94B4C1] rounded-[10px] md:text-[18px] text-[14px] py-[7px] md:py-[17px] px-[11px] md:px-[23px] font-medium ";
   return (
     <div className="flex flex-col w-full">
-      <label className={`${lableClassName} `}>{label}</label>
+      <label className={`${labelClassName} `}>{label}</label>
 
       {(type === "text" || type === "email" || type === "password") && (
         <input
@@ -80,9 +94,9 @@ export default function Input({
               >
                 {value || `${placeholder || "Select an option"}`}
                 {open ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                  <ChevronUp className="w-5 h-5  text-gray-500" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5  text-gray-500" />
                 )}
               </Listbox.Button>
 
