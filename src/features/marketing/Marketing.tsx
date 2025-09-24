@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Outlet } from "react-router-dom";
 
 const Marketing = () => {
   const navigate = useNavigate();
@@ -29,21 +30,16 @@ const Marketing = () => {
 };
 
 export default Marketing;
-
 const MarketingCard = () => {
-  const [marketingData, setMarketingData] = useState([
+  const navigate = useNavigate();
+  const [marketingData] = useState([
     {
       id: 1,
       src: "/marketing.jpg",
       offer: "September Offer",
       date: "2025-9-2",
-      likeIcon: "fa-regular fa-heart",
-      likeIconOnClick: "fa-solid fa-heart",
       likesNumber: 10,
-      liked: false,
-      commentIcon: "fa-regular fa-comment scale-x-[-1]",
       commentsNumber: 10,
-      shareIcon: "fa-solid fa-share",
       shareWord: "Share",
     },
     {
@@ -51,13 +47,8 @@ const MarketingCard = () => {
       src: "/marketing.jpg",
       offer: "September Offer",
       date: "2025-9-2",
-      likeIcon: "fa-regular fa-heart",
-      likeIconOnClick: "fa-solid fa-heart",
       likesNumber: 20,
-      liked: false,
-      commentIcon: "fa-regular fa-comment scale-x-[-1]",
       commentsNumber: 20,
-      shareIcon: "fa-solid fa-share",
       shareWord: "Share",
     },
     {
@@ -65,78 +56,21 @@ const MarketingCard = () => {
       src: "/marketing.jpg",
       offer: "September Offer",
       date: "2025-9-2",
-      likeIcon: "fa-regular fa-heart",
-      likeIconOnClick: "fa-solid fa-heart",
       likesNumber: 30,
-      liked: false,
-      commentIcon: "fa-regular fa-comment scale-x-[-1]",
       commentsNumber: 30,
-      shareIcon: "fa-solid fa-share",
-      shareWord: "Share",
-    },
-    {
-      id: 4,
-      src: "/marketing.jpg",
-      offer: "September Offer",
-      date: "2025-9-2",
-      likeIcon: "fa-regular fa-heart",
-      likeIconOnClick: "fa-solid fa-heart",
-      likesNumber: 40,
-      liked: false,
-      commentIcon: "fa-regular fa-comment scale-x-[-1]",
-      commentsNumber: 40,
-      shareIcon: "fa-solid fa-share",
-      shareWord: "Share",
-    },
-    {
-      id: 5,
-      src: "/marketing.jpg",
-      offer: "September Offer",
-      date: "2025-9-2",
-      likeIcon: "fa-regular fa-heart",
-      likeIconOnClick: "fa-solid fa-heart",
-      likesNumber: 50,
-      liked: false,
-      commentIcon: "fa-regular fa-comment scale-x-[-1]",
-      commentsNumber: 50,
-      shareIcon: "fa-solid fa-share",
-      shareWord: "Share",
-    },
-    {
-      id: 6,
-      src: "/marketing.jpg",
-      offer: "September Offer",
-      date: "2025-9-2",
-      likeIcon: "fa-regular fa-heart",
-      likeIconOnClick: "fa-solid fa-heart",
-      likesNumber: 60,
-      liked: false,
-      commentIcon: "fa-regular fa-comment scale-x-[-1]",
-      commentsNumber: 60,
-      shareIcon: "fa-solid fa-share",
       shareWord: "Share",
     },
   ]);
 
-  const toggleLike = (id: number) => {
-    setMarketingData((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              liked: !item.liked,
-              likesNumber: item.liked
-                ? item.likesNumber - 1
-                : item.likesNumber + 1,
-            }
-          : item
-      )
-    );
-  };
   return (
     <div className="flex w-full justify-center flex-wrap gap-10 -mt-10">
       {marketingData.map((item) => (
-        <div className="relative w-[340px] h-[260px] rounded-xl overflow-hidden shadow-md">
+        <div
+          key={item.id}
+          role="button"
+          onClick={() => navigate(`/marketing/${item.id}`)} // ✅ everything routes here
+          className="relative w-[340px] h-[260px] rounded-xl overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-200"
+        >
           <img src={item.src} className="w-full h-full object-cover" />
 
           <div className="absolute bottom-0 left-0 w-full bg-white/90 text-black text-sm px-3 py-5">
@@ -147,27 +81,16 @@ const MarketingCard = () => {
 
             <div className="flex justify-between items-center text-sm">
               <div className="flex items-center gap-1">
-                <i
-                  onClick={() => toggleLike(item.id)}
-                  className={`${
-                    item.liked ? item.likeIconOnClick : item.likeIcon
-                  } cursor-pointer`}
-                ></i>
-                <span className="relative bottom-[1px] ml-1">
-                  {item.likesNumber}
-                </span>
+                <i className="fa-solid fa-heart"></i>
+                <span className="ml-1">{item.likesNumber}</span>
               </div>
               <div className="flex items-center gap-1">
-                <i className={`${item.commentIcon} cursor-pointer`}></i>
-                <span className="relative bottom-[1px] ml-1">
-                  {item.commentsNumber}
-                </span>
+                <i className="fa-solid fa-comment scale-x-[-1]"></i>
+                <span className="ml-1">{item.commentsNumber}</span>
               </div>
               <div className="flex items-center gap-1">
-                <i className={`${item.shareIcon} cursor-pointer`}></i>
-                <span className="relative bottom-[1px] ml-1">
-                  {item.shareWord}
-                </span>
+                <i className="fa-solid fa-share"></i>
+                <span className="ml-1">{item.shareWord}</span>
               </div>
             </div>
           </div>

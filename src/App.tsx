@@ -19,6 +19,7 @@ import AddMarketing from "./features/marketing/AddReel.js";
 import AddNotification from "./features/notification/AddNotification";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import MarketingDetail from "./features/marketing/MarketingDetail.js";
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -58,6 +59,8 @@ function App() {
                 <Route path="/customer" element={<Customer />} />
                 <Route path="/teamwork" element={<TeamWork />} />
                 <Route path="/marketing" element={<Marketing />} />
+                <Route path="/marketing/:id" element={<MarketingDetail />} />
+
                 <Route path="/notification" element={<Notification />} />
                 <Route path="/reviews" element={<Reviews />} />
                 <Route path="/settings" element={<Settings />} />
