@@ -2,7 +2,7 @@
   import Input from "../components/Input.js";
   import ImageUpload from "../components/ImageUpload.js";
   import uploadImg from "../../assets/SVG/upload-solid-full.svg";
-  import { useModal } from "../../core/context//ModalContext.jsx";
+  import { useModal } from "../../core/context/ModalContext.jsx";
   import Button from "../components/Button.js";
   import { useNavigate } from "react-router-dom";
   import { toast } from "react-hot-toast";

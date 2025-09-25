@@ -28,7 +28,7 @@ export default function Input({
   labelClassName,
   listClassName,
   flex = "col",
-}:InputProps) {
+}: InputProps) {
   const pathname = useLocation();
   const defaultListClassName =
     "w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[17px] px-[23px] md:text-[18px] text-[14px] font-medium ";
@@ -59,6 +59,22 @@ export default function Input({
           `}
           value={value}
           onChange={onChange}
+        />
+      )}
+      {type === "textarea" && (
+        <textarea
+          placeholder={placeholder}
+          className={`
+      ${inputClassName || defaultInputClassName}
+      whitespace-normal break-words resize-none
+      transition-all duration-300 ease-in-out
+      outline-none
+      hover:scale-102
+      focus:scale-102 focus:border-[#213448] focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
+    `}
+          value={value}
+          onChange={onChange}
+          rows={4} // default height
         />
       )}
 
