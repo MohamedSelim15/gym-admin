@@ -45,7 +45,7 @@ const ImageUpload = ({
           <div className={iconClassName}>
             <img src={uploadImg} alt="Upload" />
           </div>
-          <p className={lableClassName}>{label}</p>
+          <p className={labelClassName}>{label}</p>
         </>
       ) : (
         <div className="relative w-full h-full">

@@ -58,7 +58,7 @@ export default function AddReel() {
             type={"select"}
             placeholder={"Target Audience"}
             options={[1, 2, 3]}
-            onChange={(val) => handleChange("audience", val)} // ✅ use value directly
+            onChange={(val) => handleChange("audience", val)}
             value={reelData.audience}
             lableClassName="text-[16px] md:text-[22px] font-[500px] text-[#547792]"
             listClassName="w-full flex justify-between items-center border border-[#94B4C1] rounded-[10px] py-[10px] px-[15px] md:py-[17px] md:px-[23px] md:text-[18px] text-[14px] font-medium"
