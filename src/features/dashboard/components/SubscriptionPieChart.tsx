@@ -12,10 +12,9 @@ interface PieData {
   color: string;
 }
 
-interface PieDataProps{
+interface PieDataProps {
   data: PieData[];
 }
-
 
 const renderCustomizedLabel = ({
   cx,
@@ -24,7 +23,7 @@ const renderCustomizedLabel = ({
   outerRadius,
   percent,
 }: any) => {
-  const radius = outerRadius * 0.6;
+  const radius = outerRadius * 0.5;
   const x = cx + radius * Math.cos(-midAngle * (Math.PI / 180));
   const y = cy + radius * Math.sin(-midAngle * (Math.PI / 180));
 
@@ -35,25 +34,23 @@ const renderCustomizedLabel = ({
       fill="white"
       textAnchor="middle"
       dominantBaseline="central"
-      fontSize={12}
-      fontWeight="bold"
+      fontSize={13}
     >
       {`${(percent * 100).toFixed(0)}%`}
     </text>
   );
 };
 
-const SubscriptionPieChart = ({data}:PieDataProps) => {
+const SubscriptionPieChart = ({ data }: PieDataProps) => {
   const total = data.reduce((sum, d) => sum + d.value, 0);
 
   return (
-    <div className="bg-white flex flex-col shadow rounded-xl p-4 border border-[#94B4C1] flex-1 w-full min-h-0">
-      <span className="border-b-[1px] w-fit mb-3 border-dashed text-sm sm:text-base font-medium">
+    <div className="bg-white flex flex-col shadow rounded-xl p-4 border border-[#94B4C1] flex-1 w-full primaryColorText">
+      <span className="border-b-[1px] w-fit mb-3 border-dashed">
         Subscription Breakdown
       </span>
 
       <div className="flex flex-col xl:flex-row items-center justify-center gap-3 sm:gap-5 flex-1 min-h-0">
-        
         {/* PieChart */}
         <div className="w-full xl:w-1/2 flex justify-center min-h-0">
           <div className="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[350px]">
@@ -69,18 +66,19 @@ const SubscriptionPieChart = ({data}:PieDataProps) => {
                   paddingAngle={0}
                   labelLine={false}
                   label={renderCustomizedLabel}
+                  isAnimationActive={false}
                 >
                   {data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip 
-                  formatter={(value: number) => [`${value}`, 'Count']} 
+                <Tooltip
+                  formatter={(value: number) => [`${value}`, "Count"]}
                   contentStyle={{
-                    backgroundColor: '#f8f9fa',
-                    border: '1px solid #dee2e6',
-                    borderRadius: '8px',
-                    fontSize: '12px'
+                    backgroundColor: "#f8f9fa",
+                    border: "1px solid #dee2e6",
+                    borderRadius: "8px",
+                    fontSize: "12px",
                   }}
                 />
               </PieChart>

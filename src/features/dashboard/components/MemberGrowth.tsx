@@ -55,10 +55,10 @@ const MemberGrowth = ({ data }: MemberGrowthProps) => {
             <Line
               type="monotone"
               dataKey="flow"
-              stroke="#1e3a8a"
+              stroke="#547792"
               strokeWidth={2}
-              dot={{ fill: "#1e3a8a", r: 4 }}
-              activeDot={{ r: 5, strokeWidth: 2 }}
+              dot={{ fill: "#547792", r: 4 }}
+              activeDot={{ r: 7, strokeWidth: 2 }}
             />
           </LineChart>
         </ResponsiveContainer>

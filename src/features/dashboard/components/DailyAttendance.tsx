@@ -20,7 +20,7 @@ interface AttendanceDataProps {
 
 const AttendanceChart = ({data} : AttendanceDataProps) => {
   return (
-    <div className="bg-white shadow rounded-xl p-4 border border-[#94c1e9]">
+    <div className="bg-white shadow rounded-xl p-4 border border-[#94c1e9] primaryColorText">
         <span className="border-b-[1px] w-fit mb-3 border-dashed">
         Daily Attendance
       </span>

@@ -30,7 +30,7 @@ const RevenueGrowth = ({ data }: RevenueGrowthProps) => {
 
   return (
     <div className="bg-white flex flex-col shadow rounded-xl p-4 border border-[#94B4C1] flex-1">
-      <div className="flex flex-row justify-between xl:px-5 primaryColorText">
+      <div className="flex flex-row justify-between primaryColorText">
         <span className="border-b-[1px] w-fit mb-3 border-dashed">
           Revenue Growth
         </span>
