@@ -6,7 +6,7 @@ import { useState } from "react";
 const SideBar = () => {
   const links = [
     {
-      to: "/",
+      to: "/dashboard",
       icon: "fa-solid fa-chart-simple",
       label: "Dashboard",
       active: true,
