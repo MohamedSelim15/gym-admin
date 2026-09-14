@@ -1,5 +1,5 @@
-// import Login from "./features/auth/Login.js";
-// import SignUp from "./features/auth/SignUp.js";
+import Login from "./features/auth/Login";
+import SignUp from "./features/auth/SignUp";
 
 import SideBar from "./features/components/SideBar";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -41,21 +41,23 @@ function App() {
   };
 
   const { pathname } = useLocation();
-  const hideSidebar = pathname === "/signup";
+  const hideSidebar = pathname === "/signup" || pathname === "/";
   return (
     <ModalProvider>
       <div>
-        {/* <Routes>
+        {hideSidebar && (
+          <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-          </Routes> */}
+          </Routes>
+        )}
 
         {!hideSidebar && (
           <div className="flex">
             <SideBar />
             <div className="flex-1 lg:ml-20 xl:ml-62 p-3">
               <Routes>
-                <Route path="/" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/exercise" element={<Exercise />} />
                 <Route path="/customer" element={<Customer />} />
                 <Route path="/teamwork" element={<TeamWork />} />

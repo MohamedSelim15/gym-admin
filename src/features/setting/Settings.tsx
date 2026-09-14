@@ -10,8 +10,8 @@ const Settings = () => {
   return (
     <div className="flex flex-col  w-full min-h-screen p-[20px] gap-[20px] md:p-[40px] md:gap-[40px]">
       <div className="flex items-center gap-2 w-fit">
-        <FiSettings className="text-[20px] md:text-[26px]  text-[#213448]" />
-        <p className="text-[16px] md:text-[26px] font-semibold text-[#213448]">
+        <FiSettings className="text-[20px] md:text-[26px]  primaryColorText" />
+        <p className="text-[16px] md:text-[26px] font-semibold primaryColorText">
           Settings
         </p>
       </div>
@@ -242,10 +242,10 @@ const SubscriptionPlans = () => {
     }));
   }
   return (
-    <div className="flex flex-col gap-[40px] w-full">
+    <div className="flex flex-col  gap-[40px] w-full">
       <SectionBreaker title={"Subscription Plans"} />
       <div className="flex gap-[30px] flex-col px-[20px] w-full">
-        <div className="flex w-full overflow-x-auto gap-[20px] px-[10px] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+        <div className="flex flex-wrap w-full overflow-x-auto gap-[20px] px-[10px] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -356,7 +356,7 @@ const PaymentMethods = () => {
     <div className="flex flex-col gap-[40px] w-full">
       <SectionBreaker title={"Payment Methods"} />
       <div className="flex gap-[30px] flex-col px-[20px] w-full">
-        <div className="flex w-full overflow-x-auto gap-[20px] px-[10px] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+        <div className="flex w-full flex-wrap overflow-x-auto gap-[20px] px-[10px] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
           {methods.map((plan, index) => (
             <div
               key={index}

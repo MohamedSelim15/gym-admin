@@ -32,7 +32,7 @@ export default function MarketingDetail() {
   return (
     <div className="flex p-[40px] min-h-screen">
       <div className="w-full flex flex-col gap-[30px]">
-        <div className="w-full flex justify-center bg-[#213448] rounded-[10px]">
+        <div className="w-full flex justify-center primaryColor rounded-[10px]">
           <img
             src={marketingData.src}
             alt={marketingData.offer}
@@ -40,13 +40,13 @@ export default function MarketingDetail() {
           />
         </div>
 
-        <div className="flex gap-[10px] flex-col md:gap-[30px] w-full bg-white/90 text-black text-sm px-[30px] ">
+        <div className="flex gap-[10px] flex-col md:gap-[30px] w-full bg-white/90 primaryColorText text-sm px-[30px] ">
           <div className="flex flex-col gap-[10px] md:gap-[25px]">
             <div className="flex justify-between items-center mb-4">
               <p className="font-[600px] text-[16px] md:text-[26px]">
                 {marketingData.offer}
               </p>
-              <p className="text-gray-600 text-[14px] md:text-[16px]">
+              <p className="text-[14px] md:text-[16px]">
                 {marketingData.date}
               </p>
             </div>
@@ -71,7 +71,7 @@ export default function MarketingDetail() {
           </div>
 
           <div className="flex flex-col gap-[10px] md:gap-[20px] ">
-            <p className="text-[14px] md:text-[22px] font-[500px]">Comments</p>
+            <p className="text-[14px] md:text-[22px] font-[500px] primaryColorText">Comments</p>
             <div className="flex flex-col px-[10px] md:px-[25px] gap-[5px] md:gap-[20px]">
               {comments.map((comment) => (
                 <div

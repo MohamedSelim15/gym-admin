@@ -1,14 +1,10 @@
 import { SiGmail, SiApple, SiFacebook } from "react-icons/si";
 import { BsMicrosoft } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "../../app/store";
-
 import { CiUser, CiLock, CiUnlock } from "react-icons/ci";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Link, useNavigate } from "react-router-dom";
-import { loginFun } from "./Slices/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,16 +14,11 @@ const Login = () => {
     password: false,
   });
 
-  const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, error } = useSelector((state: RootState) => state.auth);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) return;
-    dispatch(loginFun({ email, password }));
     navigate("/dashboard");
   };
 
@@ -83,7 +74,7 @@ const Login = () => {
                   onBlur={() => setFocused({ ...focused, email: false })}
                   placeholder={focused.email ? "" : "Email"}
                   className="pl-12 pr-4 py-3 w-full border-none bg-[#F2EFE7] text-[#213448] placeholder:text-[#213448]"
-                  required
+                  // required
                 />
               </div>
 
@@ -103,13 +94,9 @@ const Login = () => {
                   onBlur={() => setFocused({ ...focused, password: false })}
                   placeholder={focused.password ? "" : "Password"}
                   className="pl-12 pr-4 py-3 w-full border-none text-[#213448] bg-[#F2EFE7] placeholder:text-[#213448]"
-                  required
+                  // required
                 />
               </div>
-
-              {error && (
-                <p className="text-red-500 text-sm text-center">{error}</p>
-              )}
 
               <p className="text-[#547792] text-base mt-2 text-center cursor-pointer">
                 Forgot your password?
@@ -118,10 +105,9 @@ const Login = () => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  disabled={isLoading}
                   className="bg-[#213448] text-white px-6 py-2 rounded-full mt-10 text-xl cursor-pointer disabled:opacity-50"
                 >
-                  {isLoading ? "Loading..." : "SIGN IN"}
+                  SIGN IN
                 </button>
               </div>
             </form>

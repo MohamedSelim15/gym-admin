@@ -6,8 +6,9 @@ import { FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const SignUp = () => {
+  const navigate = useNavigate();
   const [lock, setLock] = useState(true);
   const [isSignUp, setIsSignUp] = useState(true);
 const [focused, setFocused] = useState({
@@ -117,7 +118,7 @@ const [focused, setFocused] = useState({
                 Forgot your password?
               </p>
               <div className="flex justify-center">
-                <button className="bg-[#213448] text-white px-6 py-2 rounded-full mt-10 text-xl cursor-pointer">
+                <button onClick={() => navigate("/dashboard")} className="bg-[#213448] text-white px-6 py-2 rounded-full mt-10 text-xl cursor-pointer">
                   SIGN UP
                 </button>
               </div>
