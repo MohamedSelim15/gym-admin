@@ -1,9 +1,11 @@
 import { Listbox } from "@headlessui/react";
-import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Calendar } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface InputProps {
-  label: string;
+  label?: string;
   type: "text" | "email" | "password" | "select" | "date";
   placeholder?: string;
   value: string;
@@ -36,7 +38,7 @@ export default function Input({
     "border border-[#94B4C1] rounded-[10px] md:text-[18px] text-[14px] py-[7px] md:py-[17px] px-[11px] md:px-[23px] font-medium ";
   return (
     <div className="flex flex-col w-full">
-      <label className={`${labelClassName} `}>{label}</label>
+      {label && <label className={`${labelClassName} `}>{label}</label>}
 
       {(type === "text" || type === "email" || type === "password") && (
         <input
@@ -144,23 +146,38 @@ export default function Input({
         </Listbox>
       )}
       {type === "date" && (
-        <input
-          type="date"
-          className={`
-      ${inputClassName || defaultInputClassName}
-      bg-white
-      text-[#15243F]
-      transition-all duration-300 ease-in-out
-      outline-none
-      hover:scale-102
-      focus:scale-102
-      focus:border-[#213448]
-      focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
-    `}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-        />
+        <div className="w-full relative custom-datepicker-wrapper flex items-center">
+          <DatePicker
+            selected={value ? new Date(value) : null}
+            onChange={(date: Date | null) => {
+              if (date) {
+                // Adjust for local time zone to avoid date shifting
+                const offset = date.getTimezoneOffset() * 60000;
+                const localDate = new Date(date.getTime() - offset);
+                onChange({ target: { value: localDate.toISOString().split("T")[0] } });
+              } else {
+                onChange({ target: { value: "" } });
+              }
+            }}
+            placeholderText={placeholder || "mm/dd/yyyy"}
+            className={`
+              ${inputClassName || defaultInputClassName}
+              w-full
+              bg-white
+              text-[#15243F]
+              transition-all duration-300 ease-in-out
+              outline-none
+              hover:scale-102
+              focus:scale-102
+              focus:border-[#213448]
+              focus:shadow-[0_0_5px_rgba(33,52,72,0.5)]
+              pr-10
+            `}
+            wrapperClassName="w-full"
+            dateFormat="yyyy-MM-dd"
+          />
+          <Calendar className="absolute right-4 w-5 h-5 text-gray-600 pointer-events-none" />
+        </div>
       )}
     </div>
   );

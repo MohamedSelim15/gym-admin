@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,6 +21,14 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     navigate("/dashboard");
+  };
+
+  const handleSocialAuth = (provider: string) => {
+    const toastId = toast.loading(`Connecting to ${provider}...`);
+    setTimeout(() => {
+      toast.success(`Successfully connected with ${provider}!`, { id: toastId });
+      navigate("/dashboard");
+    }, 1500);
   };
 
   return (
@@ -41,18 +50,18 @@ const Login = () => {
           >
             <h1 className="text-4xl font-bold text-[#213448] mt-10">Sign in</h1>
 
-            <div className="flex xl:flex-row lg:flex-row xl:text-4xl lg:text-4xl xl:gap-6 gap-4 mt-6 text-xl">
-              <div className="xl:p-3 xl:border-2 border-[#213448] rounded-full cursor-pointer">
-                <SiGmail className="text-[#D14836]" />
+            <div className="flex gap-4 xl:gap-6 mt-6">
+              <div onClick={() => handleSocialAuth('Gmail')} className="flex items-center justify-center w-12 h-12 xl:w-16 xl:h-16 border-2 border-[#213448] rounded-full cursor-pointer hover:bg-gray-100 transition-colors">
+                <SiGmail className="text-[#D14836] text-2xl xl:text-3xl" />
               </div>
-              <div className="xl:p-3 xl:border-2 border-[#213448] rounded-full cursor-pointer">
-                <BsMicrosoft className="text-[#666666]" />
+              <div onClick={() => handleSocialAuth('Microsoft')} className="flex items-center justify-center w-12 h-12 xl:w-16 xl:h-16 border-2 border-[#213448] rounded-full cursor-pointer hover:bg-gray-100 transition-colors">
+                <BsMicrosoft className="text-[#666666] text-xl xl:text-3xl" />
               </div>
-              <div className="xl:p-3 xl:border-2 border-[#213448] rounded-full cursor-pointer">
-                <SiApple className="text-black" />
+              <div onClick={() => handleSocialAuth('Apple')} className="flex items-center justify-center w-12 h-12 xl:w-16 xl:h-16 border-2 border-[#213448] rounded-full cursor-pointer hover:bg-gray-100 transition-colors">
+                <SiApple className="text-black text-2xl xl:text-4xl" />
               </div>
-              <div className="xl:p-3 xl:border-2 border-[#213448] rounded-full cursor-pointer">
-                <SiFacebook className="text-[#1877F2]" />
+              <div onClick={() => handleSocialAuth('Facebook')} className="flex items-center justify-center w-12 h-12 xl:w-16 xl:h-16 border-2 border-[#213448] rounded-full cursor-pointer hover:bg-gray-100 transition-colors">
+                <SiFacebook className="text-[#1877F2] text-2xl xl:text-3xl" />
               </div>
             </div>
 

@@ -17,7 +17,7 @@ const DashboardHeader = () => {
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
   };
   return (
-    <div className="flex flex-col xl:flex-row justify-between items-center mb-10 gap-4 ">
+    <div className="flex flex-col xl:flex-row justify-between items-center w-full px-0 sm:px-4 xl:px-4 mb-10 gap-4">
       <div className="flex flex-col xl:flex-row items-center space-x-2 xl:space-x-3 primaryColorText" >
         <div className="flex items-center space-x-2">
           <i className="fa-solid fa-chart-simple text-2xl xl:text-3xl"></i>
@@ -27,7 +27,7 @@ const DashboardHeader = () => {
       </div>
       <div
         onClick={() => window.location.reload()}
-        className="flex items-center space-x-2 xl:space-x-4 text-lg mr-0 xl:mr-20 cursor-pointer primaryColorText"
+        className="flex items-center space-x-2 xl:space-x-4 text-lg cursor-pointer primaryColorText"
       >
         <i className="fa-solid fa-arrows-rotate"></i>
       </div>

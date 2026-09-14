@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { useState } from "react";
 import DashboardHeader from "./components/DashboardHeader";
 import StatsCards from "./components/StatsCard";
 import MemberGrowth from "./components/MemberGrowth";
@@ -15,17 +15,40 @@ const Dashboard = () => {
     { id: 3, label: "New Registrations", value: "12" },
   ];
 
-const dataRevenue = [
-  { year: "2016", value: 5000 },
-  { year: "2017", value: 10000 },
-  { year: "2018", value: 35000 },
-  { year: "2019", value: 55000 },
-  { year: "2020", value: 8000 },
-  { year: "2021", value: 15000 },
-  { year: "2022", value: 50000 },
-  { year: "2023", value: 100000 },
-];
+  const [revenuePeriod, setRevenuePeriod] = useState<"Yearly" | "Monthly" | "Weekly">("Yearly");
 
+  const revenueData = {
+    Yearly: [
+      { name: "2016", value: 5000 },
+      { name: "2017", value: 10000 },
+      { name: "2018", value: 35000 },
+      { name: "2019", value: 55000 },
+      { name: "2020", value: 8000 },
+      { name: "2021", value: 15000 },
+      { name: "2022", value: 50000 },
+      { name: "2023", value: 100000 },
+    ],
+    Monthly: [
+      { name: "Jan", value: 4000 },
+      { name: "Feb", value: 6000 },
+      { name: "Mar", value: 8000 },
+      { name: "Apr", value: 12000 },
+      { name: "May", value: 15000 },
+      { name: "Jun", value: 11000 },
+      { name: "Jul", value: 19000 },
+      { name: "Aug", value: 25000 },
+      { name: "Sep", value: 21000 },
+      { name: "Oct", value: 28000 },
+      { name: "Nov", value: 32000 },
+      { name: "Dec", value: 38000 },
+    ],
+    Weekly: [
+      { name: "Week 1", value: 1000 },
+      { name: "Week 2", value: 1500 },
+      { name: "Week 3", value: 2500 },
+      { name: "Week 4", value: 2000 },
+    ]
+  };
   const dataMembers = [
 
     { month: "jan", flow: 120 },
@@ -74,7 +97,11 @@ const dataRevenue = [
 
         {/* Second Row */}
         <div className=" grid xl:grid-cols-2  grid-cols-1 xl:px-4 sm:flex-row gap-4 ">
-          <RevenueGrowth data={dataRevenue} />
+          <RevenueGrowth 
+            data={revenueData[revenuePeriod]} 
+            period={revenuePeriod} 
+            setPeriod={setRevenuePeriod} 
+          />
           <SubscriptionPieChart data = {SubscriptionData} />
         </div>
 

@@ -7,42 +7,58 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { ChevronDown, Check } from "lucide-react";
+import { Listbox } from "@headlessui/react";
 
 
 interface DataItem {
-  year: string;
+  name: string;
   value: number;
 }
 
 interface RevenueGrowthProps {
   data: DataItem[];
+  period: "Yearly" | "Monthly" | "Weekly";
+  setPeriod: (period: "Yearly" | "Monthly" | "Weekly") => void;
 }
 
-const RevenueGrowth = ({ data }: RevenueGrowthProps) => {
-
-  const [open, setOpen] = useState(false);
-
-  const handleOpen=()=>{
-    setOpen(!open);
-  }
+const RevenueGrowth = ({ data, period, setPeriod }: RevenueGrowthProps) => {
+  const periods: ("Yearly" | "Monthly" | "Weekly")[] = ["Yearly", "Monthly", "Weekly"];
 
   return (
     <div className="bg-white flex flex-col shadow rounded-xl p-4 border border-[#94B4C1] flex-1">
-      <div className="flex flex-row justify-between primaryColorText">
+      <div className="flex flex-row justify-between primaryColorText relative">
         <span className="border-b-[1px] w-fit mb-3 border-dashed">
           Revenue Growth
         </span>
-        <span className="text-[#547792] flex cursor-pointer"
-        onClick={handleOpen}
-        >Yearly
-        {open ? (
-              <ChevronUp className="w-4 h-4 ml-1 mt-1.5 text-gray-500" />
-            ) : (
-              <ChevronDown className="w-4 h-4 ml-1 mt-1.5 text-gray-500" />
-        )}
-        </span>
+        <div className="relative z-10 w-[120px]">
+          <Listbox value={period} onChange={setPeriod}>
+            <Listbox.Button className="text-[#547792] flex items-center justify-end w-full cursor-pointer outline-none">
+              {period}
+              <ChevronDown className="w-4 h-4 ml-1 mt-1 text-gray-500" />
+            </Listbox.Button>
+            <Listbox.Options className="absolute right-0 mt-2 w-[120px] bg-white border border-gray-200 rounded-lg shadow-lg py-1 z-20 outline-none">
+              {periods.map((p) => (
+                <Listbox.Option
+                  key={p}
+                  value={p}
+                  className={({ active }) =>
+                    `cursor-pointer px-3 py-1.5 flex items-center justify-between text-sm ${
+                      active ? "bg-blue-50 text-blue-700" : "text-gray-700"
+                    }`
+                  }
+                >
+                  {({ selected }) => (
+                    <>
+                      <span>{p}</span>
+                      {selected && <Check className="w-4 h-4 text-blue-600" />}
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Listbox>
+        </div>
       </div>
 
       <div className="w-[100%] h-[300px] mt-5">
@@ -61,7 +77,7 @@ const RevenueGrowth = ({ data }: RevenueGrowthProps) => {
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
 
             <XAxis
-              dataKey="year"
+              dataKey="name"
               axisLine={false}
               tickLine={false}
               style={{fontSize:"12px",fill: "#374151" }}

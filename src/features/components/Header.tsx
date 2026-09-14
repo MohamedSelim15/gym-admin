@@ -20,13 +20,13 @@ export default function Header({
   const { pathname } = useLocation();
 
   return (
-    <div className="flex flex-col xl:space-y-0 space-y-10 xl:flex-row justify-between items-center px-[40px] mb-20 primaryColorText ">
-      <div className=" relative right-5 text-2xl font-medium">
-        <i className={`${pageLogo} mr-2 `}></i>
+    <div className="flex flex-col xl:space-y-0 space-y-10 xl:flex-row justify-between items-center w-full mb-20 primaryColorText">
+      <div className="text-2xl font-medium">
+        <i className={`${pageLogo} mr-2`}></i>
         {pageName}
       </div>
 
-      <div className={`relative ${pathname === "/reviews" ? "xl:-mr-180" : "xl:mr-70"} `}>
+      <div className="relative">
         <i className="fa-solid fa-magnifying-glass mr-2 absolute left-2 top-2.5"></i>
         <input
           className="border-1 border-[#213448] rounded-2xl pl-10 px-4 py-1"
